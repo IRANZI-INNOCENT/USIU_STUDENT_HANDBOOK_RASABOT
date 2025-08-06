@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>USIU GuideBot</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" type="image/png" href="https://www.usiu.ac.ke/images/favicon.png" />
+  <style>
+    #chat-container {
+      max-height: 50vh;
+      overflow-y: auto;
+      border-radius: 0.75rem;
+      background-color: #F3F4F6;
+      padding: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    #chat-container::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    #chat-container::-webkit-scrollbar-thumb {
+      background-color: #ccc;
+      border-radius: 4px;
+    }
+
+    .user-message {
+      background-color: #002855;
+      color: white;
+      padding: 0.6rem 1rem;
+      border-radius: 1rem 1rem 0 1rem;
+      margin: 0.5rem 0;
+      max-width: 85%;
+      align-self: flex-end;
+      word-wrap: break-word;
+      font-size: 0.95rem;
+    }
+
+    .bot-message {
+      background-color: #FFC72C;
+      color: #002855;
+      padding: 0.6rem 1rem;
+      border-radius: 1rem 1rem 1rem 0;
+      margin: 0.5rem 0;
+      max-width: 85%;
+      align-self: flex-start;
+      word-wrap: break-word;
+      font-size: 0.95rem;
+    }
+
+    .example-button {
+      background-color: #002855;
+      color: #FFFFFF;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      margin: 0.25rem;
+      cursor: pointer;
+      font-size: 0.85rem;
+      transition: background-color 0.2s ease, color 0.2s ease;
+      display: inline-block;
+      font-weight: 500;
+    }
+
+    .example-button:hover {
+      background-color: #FFC72C;
+      color: #002855;
+    }
+
+    .typing-indicator {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1rem;
+      background-color: #F3F4F6;
+      border-radius: 1rem;
+      margin: 0.5rem 0;
+    }
+
+    .typing-dots {
+      display: flex;
+      gap: 0.25rem;
+    }
+
+    .typing-dot {
+      width: 6px;
+      height: 6px;
+      background-color: #002855;
+      border-radius: 50%;
+      animation: typingAnimation 1s ease-in-out infinite;
+    }
+
+    .typing-dot:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .typing-dot:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes typingAnimation {
+      0%, 60%, 100% {
+        transform: translateY(0);
+        opacity: 0.5;
+      }
+      30% {
+        transform: translateY(-6px);
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body class="bg-white flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
+  <div class="w-full max-w-lg sm:max-w-xl md:max-w-2xl p-4">
+    <h1 class="text-3xl sm:text-4xl font-bold text-center text-[#002855] mb-2">
+      <i class="fas fa-graduation-cap mr-2"></i>USIU GuideBot
+    </h1>
+    <p class="text-center text-gray-600 mb-4 text-sm sm:text-base">Your smart campus assistant!</p>
+
+    <!-- Example Questions -->
+    <div class="mb-4 text-center">
+      <p class="text-sm text-gray-600 mb-2 font-medium">Quick Questions:</p>
+      <div class="flex flex-wrap justify-center gap-2">
+        <span class="example-button" onclick="askQuestion('What programs does USIU offer?')"><i class="fas fa-book mr-1"></i>Programs</span>
+        <span class="example-button" onclick="askQuestion('How do I apply for admission?')"><i class="fas fa-file-alt mr-1"></i>Admission</span>
+        <span class="example-button" onclick="askQuestion('What are the tuition fees?')"><i class="fas fa-money-bill mr-1"></i>Fees</span>
+        <span class="example-button" onclick="askQuestion('Where is the library located?')"><i class="fas fa-book-open mr-1"></i>Library</span>
+        <span class="example-button" onclick="askQuestion('How do I register for courses?')"><i class="fas fa-clipboard-list mr-1"></i>Registration</span>
+      </div>
+    </div>
+
+    <div id="chat-container" class="flex flex-col mb-4">
+      <div class="bot-message self-start">
+        <i class="fas fa-robot mr-2"></i>Hello! I'm USIU GuideBot. Ask me about programs, admissions, campus life, or anything else!
+      </div>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-2 sm:gap-0">
+      <input
+        id="user-input"
+        type="text"
+        placeholder="Type your question..."
+        class="flex-1 px-4 py-2 border border-gray-300 rounded-xl sm:rounded-l-xl sm:rounded-r-none focus:outline-none focus:ring-2 focus:ring-[#002855] text-sm sm:text-base"
+      />
+      <button
+        id="send-button"
+        class="bg-[#FFC72C] text-[#002855] font-semibold px-4 py-2 rounded-xl sm:rounded-r-xl sm:rounded-l-none hover:bg-yellow-400 transition text-sm sm:text-base"
+      >
+        <i class="fas fa-paper-plane mr-1"></i>Send
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const chatContainer = document.getElementById('chat-container');
+    const userInput = document.getElementById('user-input');
+    const sendButton = document.getElementById('send-button');
+
+    function addMessage(text, isUser) {
+      const messageDiv = document.createElement('div');
+      messageDiv.className = isUser ? 'user-message self-end' : 'bot-message self-start';
+      messageDiv.innerHTML = isUser 
+        ? `<i class="fas fa-user mr-2"></i>${text}`
+        : `<i class="fas fa-robot mr-2"></i>${text}`;
+      chatContainer.appendChild(messageDiv);
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+
+    function addTypingIndicator() {
+      const typingDiv = document.createElement('div');
+      typingDiv.className = 'bot-message self-start typing-indicator';
+      typingDiv.id = 'typing-indicator';
+      typingDiv.innerHTML = `
+        <i class="fas fa-robot mr-2"></i>
+        <span>Thinking...</span>
+        <div class="typing-dots">
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+        </div>
+      `;
+      chatContainer.appendChild(typingDiv);
+      chatContainer.scrollTop = chatContainer.scrollHeight;
+    }
+
+    function removeTypingIndicator() {
+      const typingIndicator = document.getElementById('typing-indicator');
+      if (typingIndicator) typingIndicator.remove();
+    }
+
+    async function sendMessage() {
+      const message = userInput.value.trim();
+      if (!message) return;
+
+      addMessage(message, true);
+      userInput.value = '';
+      addTypingIndicator();
+
+      try {
+        const response = await fetch('http://localhost:5005/webhooks/rest/webhook', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            sender: 'test_user',
+            message: message
+          })
+        });
+
+        removeTypingIndicator();
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        if (data && data.length > 0) {
+          data.forEach(item => {
+            if (item.text) addMessage(item.text, false);
+          });
+        } else {
+          addMessage('Sorry, no response from the server.', false);
+        }
+      } catch (error) {
+        removeTypingIndicator();
+        addMessage('Error connecting to the server. Please check if the Rasa server is running.', false);
+        console.error('Fetch error:', error);
+      }
+    }
+
+    function askQuestion(question) {
+      userInput.value = question;
+      sendMessage();
+    }
+
+    sendButton.addEventListener('click', sendMessage);
+    userInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') sendMessage();
+    });
+
+    window.addEventListener('load', () => {
+      userInput.focus();
+    });
+  </script>
+</body>
+</html>

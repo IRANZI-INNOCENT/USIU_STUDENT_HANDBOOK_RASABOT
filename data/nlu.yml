@@ -1,0 +1,1769 @@
+version: "3.1"
+
+nlu:
+# Basic conversation intents
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - good afternoon
+    - hey there
+    - hi there
+    - greetings
+    - howdy
+    - what's up
+    - hey bot
+    - hello bot
+
+- intent: goodbye
+  examples: |
+    - goodbye
+    - bye
+    - see you later
+    - bye bye
+    - see you
+    - thanks, bye
+    - thank you, goodbye
+    - good night
+    - have a nice day
+    - see you around
+    - catch you later
+    - take care
+    - farewell
+    - until next time
+
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - yes please
+    - absolutely
+    - sure
+    - right
+    - exactly
+    - true
+    - yep
+    - yeah
+    - okay
+    - ok
+    - sounds good
+    - perfect
+    - agreed
+
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - nope
+    - nah
+    - not at all
+    - definitely not
+    - I disagree
+    - that's wrong
+    - incorrect
+    - false
+
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+    - fantastic
+    - excellent
+    - awesome
+    - brilliant
+
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+    - terrible
+    - awful
+    - miserable
+    - depressed
+
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - what are you?
+    - who are you?
+    - are you real?
+    - are you artificial?
+    - are you AI?
+
+# Academic Affairs Intents (From usiu_faqs_academic_affairs.md)
+- intent: course_load_inquiry
+  examples: |
+    - How many units do I need to be considered a full-time student?
+    - What's the minimum course load for full-time enrollment?
+    - How many credits should I take per semester to maintain full-time status?
+    - What are the unit requirements for undergraduate vs graduate students?
+    - How many courses do I need to register for to be full-time?
+    - What's the difference between full-time and part-time enrollment requirements?
+    - Can you explain the credit system at USIU?
+    - How many units make up a normal semester load?
+    - What's the minimum enrollment to qualify for full-time benefits?
+    - How do I know if I'm taking enough units to be full-time?
+    - minimum course load
+    - credit requirements
+    - full time units
+    - part time enrollment
+    - semester units
+    - course credits
+    - unit requirements
+    - how many units
+    - how many courses
+    - credit hours
+
+- intent: academic_advising_inquiry
+  examples: |
+    - Who can help me plan my course schedule?
+    - How do I meet with an academic advisor?
+    - Where can I get help choosing my classes?
+    - Who assists with degree planning at USIU?
+    - How often should I meet with my academic advisor?
+    - What services do Academic Advisors provide?
+    - Can someone help me create an educational plan?
+    - Who do I contact for course advising?
+    - Where can I get guidance on my major requirements?
+    - How do I schedule a meeting with my advisor?
+    - academic advisor
+    - academic advising
+    - course planning
+    - degree planning
+    - academic planning
+    - course selection help
+    - advisor meeting
+    - academic guidance
+    - course guidance
+    - educational planning
+
+- intent: attendance_policy_inquiry
+  examples: |
+    - How many classes can I miss before getting in trouble?
+    - What happens if I'm absent too many times?
+    - What's the attendance policy at USIU?
+    - Can I fail a course for not attending classes?
+    - How many absences are allowed per semester?
+    - What are the consequences of missing too many classes?
+    - Do I get an automatic F for excessive absences?
+    - What's considered excessive absenteeism?
+    - How does attendance affect my grades?
+    - What should I do if I have to miss class due to illness?
+    - attendance policy
+    - missing classes
+    - absent from class
+    - attendance requirements
+    - class attendance
+    - absences allowed
+    - attendance rules
+    - missing too many classes
+    - attendance consequences
+    - illness absence
+
+- intent: gpa_requirements_inquiry
+  examples: |
+    - What GPA do I need to maintain to stay in good standing?
+    - What's the minimum GPA requirement at USIU?
+    - What happens if my GPA drops too low?
+    - How does academic probation work?
+    - What are the consequences of poor academic performance?
+    - Can I be dismissed for low grades?
+    - What GPA is considered failing?
+    - How do I avoid academic probation?
+    - What's the difference between warning and probation?
+    - Can I appeal an academic dismissal?
+    - minimum GPA
+    - GPA requirements
+    - academic standing
+    - academic probation
+    - academic warning
+    - academic dismissal
+    - poor performance
+    - low grades
+    - GPA appeal
+    - good standing
+
+- intent: library_hours_inquiry
+  examples: |
+    - What are the library operating hours?
+    - When is the library open during the semester?
+    - What time does the library close on weekdays?
+    - Is the library open on weekends?
+    - Are library hours different during vacation?
+    - What are the Sunday library hours?
+    - When does the library open in the morning?
+    - Is the library open during holidays?
+    - Do library hours change during exam periods?
+    - How late is the library open on weeknights?
+    - library hours
+    - library open times
+    - when is library open
+    - library schedule
+    - library operating hours
+    - library weekend hours
+    - library vacation hours
+    - what time library close
+    - library opening time
+    - library closing time
+
+- intent: library_borrowing_inquiry
+  examples: |
+    - How many books can I borrow from the library?
+    - How long can I keep library books?
+    - What's the loan period for students?
+    - Can I renew my library books?
+    - How many items can faculty borrow?
+    - What materials can't be borrowed from the library?
+    - Are there different borrowing rules for graduates vs undergraduates?
+    - What happens if I return books late?
+    - Can I borrow audiovisual materials?
+    - What are the fines for overdue books?
+    - borrow books
+    - library borrowing
+    - book loan period
+    - library materials
+    - borrowing policy
+    - renew books
+    - library loan
+    - how many books
+    - borrowing rules
+    - library checkout
+
+- intent: library_fines_inquiry
+  examples: |
+    - How much do I have to pay for late library books?
+    - What are the fines for overdue materials?
+    - What happens if I lose a library book?
+    - How much does it cost to replace a damaged book?
+    - Are there different fines for different types of materials?
+    - What's the penalty for returning audiovisual materials late?
+    - How are replacement costs calculated?
+    - Can fines affect my registration?
+    - What if I return a book damaged?
+    - Are there daily fines for overdue items?
+    - library fines
+    - overdue books
+    - library penalties
+    - lost book cost
+    - damaged book
+    - library fees
+    - overdue fines
+    - replacement cost
+    - late return fee
+    - library charges
+
+- intent: course_registration_inquiry
+  examples: |
+    - Who can help me register for classes?
+    - How do I add or drop courses?
+    - When can I change my class schedule?
+    - Who assists with course substitutions?
+    - Can I get help planning around my work schedule?
+    - How do I register for classes that fit my availability?
+    - Who handles major and minor program changes?
+    - Can someone help me create a flexible schedule?
+    - What if I need to switch sections?
+    - How do I handle registration problems?
+    - course registration
+    - register for classes
+    - add drop courses
+    - class schedule
+    - course changes
+    - registration help
+    - schedule planning
+    - course substitution
+    - registration assistance
+    - class registration
+
+- intent: transfer_credits_inquiry
+  examples: |
+    - How do I transfer credits from another university?
+    - Who approves transfer credits?
+    - Can I get credit for courses taken elsewhere?
+    - What's the process for transferring credits?
+    - How are external credits evaluated?
+    - Who do I contact about credit transfers?
+    - Can previous college work count toward my degree?
+    - How do I submit transcripts for credit evaluation?
+    - What courses are eligible for transfer?
+    - How long does transfer credit approval take?
+    - transfer credits
+    - credit transfer
+    - external credits
+    - previous coursework
+    - transfer credit approval
+    - credit evaluation
+    - transfer process
+    - transfer credits from other university
+    - credit recognition
+    - course transfer
+
+- intent: graduation_requirements_inquiry
+  examples: |
+    - When do I need to apply for graduation?
+    - What are the requirements to graduate?
+    - How do I know if I'm ready to graduate?
+    - When is the graduation ceremony held?
+    - What GPA do I need for honors?
+    - How do I apply for graduation?
+    - What's the deadline for graduation applications?
+    - Can I graduate with honors?
+    - What are the different types of honors?
+    - How is my final GPA calculated for graduation?
+    - graduation requirements
+    - apply for graduation
+    - graduation application
+    - graduation ceremony
+    - graduation honors
+    - graduate with honors
+    - graduation deadline
+    - commencement
+    - ready to graduate
+    - graduation process
+
+- intent: independent_study_inquiry
+  examples: |
+    - Can I do independent study courses?
+    - How do I get approval for independent study?
+    - Who approves independent study projects?
+    - What are the requirements for independent study?
+    - Can I design my own course?
+    - How do I propose an independent study?
+    - Who supervises independent study courses?
+    - Are independent studies worth the same credits?
+    - What's the process for independent study approval?
+    - Can independent study count toward my degree?
+    - independent study
+    - independent research
+    - self directed study
+    - independent course
+    - independent project
+    - individual study
+    - custom course
+    - independent learning
+    - study independently
+    - independent work
+
+- intent: library_study_spaces_inquiry
+  examples: |
+    - Are there study rooms in the library?
+    - Can I book a study space?
+    - What study facilities are available?
+    - Are there quiet study areas?
+    - Can groups use library study rooms?
+    - Where can I study with audiovisual materials?
+    - How many people can the library accommodate?
+    - Are there computer workstations for studying?
+    - Can I reserve study carrels?
+    - What types of study spaces are available?
+    - library study rooms
+    - study spaces
+    - quiet study area
+    - library seating
+    - study carrels
+    - group study rooms
+    - library facilities
+    - study areas
+    - library workspace
+    - study environment
+
+- intent: library_rules_inquiry
+  examples: |
+    - What are the library rules I need to follow?
+    - Can I use my phone in the library?
+    - Am I allowed to eat in the library?
+    - What happens if I break library rules?
+    - Can I talk with friends in the library?
+    - Are drinks allowed in the library?
+    - What's not allowed in the library?
+    - Can I sleep in the library?
+    - What are the consequences of rule violations?
+    - How should I behave in the library?
+    - library rules
+    - library policies
+    - library conduct
+    - library behavior
+    - library regulations
+    - what's allowed in library
+    - library restrictions
+    - library guidelines
+    - library etiquette
+    - library dos and don'ts
+
+- intent: library_resources_inquiry
+  examples: |
+    - What resources does the library have?
+    - Can I access online databases?
+    - What special collections are available?
+    - Are there materials about Africa?
+    - Does the library have American studies materials?
+    - Can I access UN documents?
+    - What audiovisual materials are available?
+    - Are course textbooks available in the library?
+    - Can I use materials from other libraries?
+    - What research databases can I access?
+    - library resources
+    - library collections
+    - online databases
+    - research materials
+    - library databases
+    - special collections
+    - audiovisual materials
+    - course textbooks
+    - research resources
+    - library materials
+
+- intent: library_staff_contact_inquiry
+  examples: |
+    - Who can I contact for library help?
+    - What's the library help desk number?
+    - How do I reach the librarians?
+    - Who assists with research questions?
+    - Can I email the library for help?
+    - What extensions should I call for library help?
+    - Who helps with database searches?
+    - How do I contact the User Services Librarian?
+    - Where is the information desk?
+    - Can I get research assistance?
+    - library contact
+    - library help
+    - librarian contact
+    - library assistance
+    - library help desk
+    - library support
+    - research help
+    - library staff
+    - library information
+    - library email
+
+- intent: academic_calendar_inquiry
+  examples: |
+    - When are important academic deadlines?
+    - Where can I find the academic calendar?
+    - When do I need to apply for graduation?
+    - What are the semester dates?
+    - When is course registration?
+    - Are there different deadlines for different things?
+    - When do classes start and end?
+    - What are the exam periods?
+    - When are semester breaks?
+    - How do I stay updated on important dates?
+    - academic calendar
+    - important dates
+    - semester dates
+    - academic deadlines
+    - registration dates
+    - exam schedule
+    - class schedule
+    - semester breaks
+    - academic schedule
+    - university calendar
+
+- intent: student_classification_inquiry
+  examples: |
+    - What makes someone a freshman vs sophomore?
+    - How are students classified by year?
+    - How many credits do I need to be a junior?
+    - What determines my class level?
+    - Am I considered a senior yet?
+    - How do credit hours affect my classification?
+    - What's the difference between class levels?
+    - How many units make me a sophomore?
+    - When do I become a senior?
+    - How is academic standing determined?
+    - student classification
+    - class level
+    - freshman sophomore
+    - junior senior
+    - academic year
+    - class standing
+    - student level
+    - year classification
+    - credit classification
+    - academic level
+
+- intent: academic_support_contact_inquiry
+  examples: |
+    - Who should I contact for academic problems?
+    - What's the Dean's contact information?
+    - How do I reach the Academic Affairs office?
+    - Who handles student complaints?
+    - What extension should I call for help?
+    - How do I contact my school's administration?
+    - Who can help with academic appeals?
+    - What's the DVCAA contact information?
+    - How do I reach Academic Program Administrators?
+    - Who should I talk to about degree requirements?
+    - academic support
+    - dean contact
+    - academic affairs
+    - academic help
+    - administration contact
+    - academic office
+    - academic assistance
+    - academic administration
+    - academic contact
+    - academic problems
+
+- intent: course_structure_inquiry
+  examples: |
+    - How many hours is a 3-unit course?
+    - How often do classes meet per week?
+    - What does a unit of credit mean?
+    - How much study time is expected outside class?
+    - How are class schedules structured?
+    - What's the relationship between units and class time?
+    - How many hours should I study per credit hour?
+    - How long are class sessions?
+    - What's a typical course format?
+    - How much homework should I expect per unit?
+    - course structure
+    - class hours
+    - credit hours
+    - study time
+    - class schedule
+    - course format
+    - class meetings
+    - homework time
+    - class time
+    - course workload
+
+- intent: student_newspaper_inquiry
+  examples: |
+    - Does USIU have a student newspaper?
+    - How can I contribute to the USIU Gazette?
+    - Can I write articles for the student paper?
+    - How do I submit letters to the editor?
+    - Where is the student newspaper office located?
+    - Can I join the student editorial board?
+    - How often is the USIU Gazette published?
+    - What kind of content does the student paper cover?
+    - Who produces the USIU Gazette?
+    - How do I get involved in student journalism?
+    - student newspaper
+    - USIU Gazette
+    - student journalism
+    - campus newspaper
+    - student publication
+    - write for newspaper
+    - student media
+    - campus media
+    - student press
+    - student editorial
+
+# University Organization Intents (From usiu_faqs_university_organization.md)
+- intent: vice_chancellor_inquiry
+  examples: |
+    - Who is the Vice Chancellor at USIU?
+    - What does the Vice Chancellor's Office do?
+    - How can I contact the Vice Chancellor's Office?
+    - What are the student exchange programs at USIU?
+    - Tell me about USIU's global partnerships
+    - Who oversees the university's operations?
+    - How does the Vice Chancellor support student exchange?
+    - What is the role of the Vice Chancellor at USIU?
+    - Can I study abroad through USIU's exchange programs?
+    - How do I get information on international exchange programs?
+    - vice chancellor
+    - VC office
+    - university leadership
+    - exchange programs
+    - study abroad
+    - international programs
+    - global partnerships
+    - university operations
+    - student exchange
+    - international exchange
+
+- intent: payment_methods_inquiry
+  examples: |
+    - How can I pay my fees at USIU?
+    - Does USIU accept M-PESA for fee payments?
+    - What are the payment options for tuition?
+    - Can I use a credit card to pay my fees?
+    - Which banks does USIU use for fee deposits?
+    - How do I make a wire transfer to USIU?
+    - Is Zap an option for paying fees at USIU?
+    - Can I pay fees with a debit card?
+    - What details do I need for M-PESA payments?
+    - Are checks accepted for USIU fee payments?
+    - payment methods
+    - pay fees
+    - tuition payment
+    - fee payment
+    - M-PESA payment
+    - credit card payment
+    - bank deposit
+    - wire transfer
+    - payment options
+    - how to pay
+
+- intent: deferred_payment_inquiry
+  examples: |
+    - Can I pay my fees in installments?
+    - What are the deferred payment options?
+    - How do I arrange a payment plan?
+    - Can I get an extension on fee payment?
+    - What are the requirements for deferred payment?
+    - Who handles payment plan arrangements?
+    - Is there a payment plan for tuition?
+    - Can I pay fees gradually?
+    - What's the process for payment deferrment?
+    - Are there payment plan options available?
+    - deferred payment
+    - payment plan
+    - installment payment
+    - payment extension
+    - payment arrangement
+    - pay in installments
+    - fee payment plan
+    - delayed payment
+    - payment deferrment
+    - gradual payment
+
+- intent: cafeteria_hours_inquiry
+  examples: |
+    - What are the cafeteria operating hours?
+    - When is the cafeteria open?
+    - What time does the cafeteria serve breakfast?
+    - When is lunch served in the cafeteria?
+    - What are the dinner hours at the cafeteria?
+    - Is the cafeteria open on weekends?
+    - What are the Sunday cafeteria hours?
+    - When can I get snacks at the cafeteria?
+    - What time does the cafeteria close?
+    - Are there different meal times?
+    - cafeteria hours
+    - dining hours
+    - meal times
+    - breakfast time
+    - lunch time
+    - dinner time
+    - cafeteria schedule
+    - food service hours
+    - when cafeteria open
+    - meal schedule
+
+- intent: cafeteria_rules_inquiry
+  examples: |
+    - What are the cafeteria rules?
+    - Can I bring outside food to the cafeteria?
+    - What's not allowed in the cafeteria?
+    - Can I use someone else's ID to buy food?
+    - What happens if I break cafeteria rules?
+    - Are there restrictions on cafeteria use?
+    - What's the policy on taking utensils?
+    - How should I behave in the cafeteria?
+    - What are the dining regulations?
+    - Can I share my meal card?
+    - cafeteria rules
+    - dining rules
+    - cafeteria policy
+    - cafeteria regulations
+    - food policy
+    - cafeteria conduct
+    - dining policy
+    - cafeteria restrictions
+    - meal card policy
+    - cafeteria guidelines
+
+- intent: transport_inquiry
+  examples: |
+    - Does USIU provide student transport?
+    - How do I book university transport?
+    - What are the transport services available?
+    - Where is the Transport Office located?
+    - Can I get transport to and from campus?
+    - What are the transport schedules?
+    - How much does university transport cost?
+    - Do I need to register for transport services?
+    - What are the transport routes?
+    - How do I contact the transport office?
+    - student transport
+    - university transport
+    - campus transport
+    - transport services
+    - transport office
+    - transport booking
+    - campus shuttle
+    - university bus
+    - transport schedule
+    - transport routes
+
+- intent: fire_safety_inquiry
+  examples: |
+    - What are the fire safety rules on campus?
+    - What should I do in case of a fire?
+    - Are there fire safety procedures?
+    - What's not allowed regarding fire safety?
+    - How do I report a fire emergency?
+    - What are the fire evacuation procedures?
+    - Are there fire safety regulations?
+    - What happens if I violate fire safety rules?
+    - Where are the fire extinguishers located?
+    - Who do I contact for fire emergencies?
+    - fire safety
+    - fire emergency
+    - fire rules
+    - fire procedures
+    - fire evacuation
+    - fire regulations
+    - fire safety policy
+    - emergency procedures
+    - fire alarm
+    - fire prevention
+
+- intent: alumni_services_inquiry
+  examples: |
+    - What services are available for alumni?
+    - How can alumni access the library?
+    - What are the alumni fees?
+    - How do I contact the Alumni Office?
+    - What benefits do alumni get?
+    - Can alumni use university facilities?
+    - What's the cost for alumni library access?
+    - How do I register as an alumnus?
+    - What alumni programs are available?
+    - How do I stay connected as an alumnus?
+    - alumni services
+    - alumni office
+    - alumni benefits
+    - alumni access
+    - alumni library
+    - alumni fees
+    - alumni programs
+    - alumni registration
+    - graduate services
+    - alumni support
+
+- intent: hr_services_inquiry
+  examples: |
+    - What services does Human Resources provide?
+    - How do I contact the HR office?
+    - Who handles staff grievances?
+    - What are the HR policies?
+    - How do I report HR issues?
+    - What insurance coverage do students have?
+    - Who handles employment matters?
+    - What are the student insurance benefits?
+    - How do I file a complaint against staff?
+    - What HR support is available?
+    - human resources
+    - HR services
+    - HR office
+    - staff issues
+    - employee matters
+    - HR policies
+    - insurance coverage
+    - student insurance
+    - HR support
+    - HR contact
+
+- intent: ict_services_inquiry
+  examples: |
+    - What ICT services are available?
+    - How do I access Blackboard?
+    - What computer facilities are available?
+    - How do I get help with technology?
+    - Where are the computer labs located?
+    - What's the Wi-Fi password?
+    - How do I access the CX system?
+    - What printing services are available?
+    - How do I get technical support?
+    - What e-learning platforms are used?
+    - ICT services
+    - computer services
+    - Blackboard access
+    - computer labs
+    - Wi-Fi access
+    - CX system
+    - technical support
+    - e-learning
+    - printing services
+    - technology help
+
+- intent: ict_regulations_inquiry
+  examples: |
+    - What are the ICT lab rules?
+    - What's not allowed in computer labs?
+    - What are the technology usage policies?
+    - Can I install software on lab computers?
+    - What happens if I break ICT rules?
+    - Are there restrictions on computer use?
+    - What's the policy on using lab equipment?
+    - Can I use someone else's account?
+    - What are the ICT usage guidelines?
+    - What ID do I need for computer labs?
+    - ICT rules
+    - computer lab rules
+    - ICT policies
+    - technology regulations
+    - lab regulations
+    - computer usage
+    - ICT guidelines
+    - lab policies
+    - technology rules
+    - computer restrictions
+
+- intent: contact_request
+  examples: |
+    - How do I contact the university?
+    - What's the main phone number?
+    - How do I reach different departments?
+    - What are the office hours?
+    - Where can I find contact information?
+    - How do I get in touch with administration?
+    - What extension should I call?
+    - How do I contact student services?
+    - Where is the main office located?
+    - How do I reach the help desk?
+    - contact information
+    - phone numbers
+    - office hours
+    - university contact
+    - department contact
+    - administration contact
+    - main office
+    - help desk
+    - university phone
+    - contact details
+
+# Student Life Intents (From usiu_student_life_faq1.md)
+- intent: understand_general_student_life
+  examples: |
+    - What is student life like at the university?
+    - Tell me about student life on campus
+    - What does USIU offer besides academics?
+    - What else does USIU have to offer?
+    - Does USIU have a student life?
+    - What activities are available for students?
+    - How is campus life at USIU?
+    - What can I do outside of classes?
+    - What's the student experience like?
+    - Tell me about campus culture
+    - student life
+    - campus life
+    - student experience
+    - campus culture
+    - student activities
+    - extracurricular activities
+    - campus activities
+    - student engagement
+    - university life
+    - social life
+
+- intent: explore_clubs_and_societies
+  examples: |
+    - Are there clubs and societies students can join?
+    - How do I join a club at USIU?
+    - Can I start a new club on campus?
+    - What clubs are available?
+    - How many clubs does USIU have?
+    - What societies can I join?
+    - Are there academic clubs?
+    - Can I join multiple clubs?
+    - What's the process for joining clubs?
+    - How do I find clubs that interest me?
+    - student clubs
+    - clubs and societies
+    - join clubs
+    - student organizations
+    - campus clubs
+    - club membership
+    - student societies
+    - club activities
+    - start a club
+    - club registration
+
+- intent: learn_about_student_leadership
+  examples: |
+    - What student leadership opportunities exist?
+    - How do I become a student leader?
+    - Who governs the students at USIU?
+    - What leadership roles are available?
+    - Can I run for student government?
+    - What are the student leadership positions?
+    - How do student elections work?
+    - What does student government do?
+    - How can I get involved in student leadership?
+    - What are the requirements for student leaders?
+    - student leadership
+    - student government
+    - leadership opportunities
+    - student leaders
+    - student elections
+    - leadership roles
+    - student council
+    - student representation
+    - leadership positions
+    - student democracy
+
+- intent: spiritual_life_support
+  examples: |
+    - Does USIU provide spiritual support?
+    - Are there religious services on campus?
+    - What spiritual activities are available?
+    - Is there a chaplain at USIU?
+    - Can I practice my religion on campus?
+    - Are there prayer facilities?
+    - What religious groups are active?
+    - Does the university support different faiths?
+    - Are there spiritual counseling services?
+    - What interfaith activities exist?
+    - spiritual life
+    - religious services
+    - chaplain services
+    - prayer facilities
+    - religious activities
+    - spiritual support
+    - faith communities
+    - religious groups
+    - spiritual counseling
+    - interfaith dialogue
+
+# Student Services Intents (From usiu_student_services.md)
+- intent: sac_inquiry
+  examples: |
+    - What is the Student Affairs Council?
+    - What does SAC do?
+    - Who makes up the SAC Executive Committee?
+    - What is the function of the SAC Senate?
+    - How does the SAC support student interests?
+    - Can I join the SAC as a student?
+    - How often does the SAC meet?
+    - What are the subcommittees under SAC?
+    - How does the SAC help with student issues?
+    - What is the role of SAC?
+    - Student Affairs Council
+    - SAC
+    - student government
+    - student council
+    - SAC Executive Committee
+    - SAC Senate
+    - student representation
+    - student governance
+    - SAC services
+    - student affairs
+
+- intent: sac_representatives_inquiry
+  examples: |
+    - What are the responsibilities of SAC representatives?
+    - Who manages student health and housing concerns in SAC?
+    - What role does the SAC Academic Representative play?
+    - How do SAC representatives interact with faculty?
+    - What events do SAC representatives organize?
+    - Can SAC representatives help with transport issues?
+    - Are SAC representatives elected or appointed?
+    - What kind of support can I get from a SAC rep?
+    - Can I run for a SAC representative role?
+    - What's the term length for SAC reps?
+    - SAC representatives
+    - SAC welfare representative
+    - SAC academic representative
+    - student representatives
+    - SAC roles
+    - SAC positions
+    - student advocacy
+    - SAC services
+    - student support
+    - representative duties
+
+- intent: student_clubs_organizations_inquiry
+  examples: |
+    - How do I start a new student club at USIU?
+    - Who do I contact about student organizations?
+    - Where can I find the guidelines for club registration?
+    - Are there academic-focused clubs?
+    - Can international students start clubs?
+    - How long does club approval take?
+    - Are clubs allowed to host public events?
+    - Can clubs receive funding?
+    - What's in the Club Handbook?
+    - Where do clubs submit activity reports?
+    - student organizations
+    - club registration
+    - start new club
+    - club approval
+    - club funding
+    - club guidelines
+    - club handbook
+    - club coordinator
+    - student activities
+    - organization registration
+
+- intent: registrar_services_inquiry
+  examples: |
+    - What services are provided by the Registrar's Office?
+    - Where do I get my student ID at USIU?
+    - How do I update my contact information with the university?
+    - How do I apply for transcripts?
+    - Can I get academic verification letters?
+    - How do I request academic calendar info?
+    - What documents are needed for clearance?
+    - Can I change my official name at USIU?
+    - How do I register for classes?
+    - What is the Registrar's contact info?
+    - registrar services
+    - student ID
+    - transcripts
+    - academic verification
+    - contact update
+    - name change
+    - clearance documents
+    - registrar office
+    - academic records
+    - enrollment verification
+
+- intent: health_centre_services_inquiry
+  examples: |
+    - Where is the USIU Health Centre located?
+    - What services does the USIU Health Centre offer?
+    - What are the operating hours of the Health Centre?
+    - Who is eligible to use the Health Centre?
+    - Are mental health services available?
+    - Does the Health Centre handle emergencies?
+    - Can I book appointments online?
+    - Are vaccinations provided at the Health Centre?
+    - Can family members use the Health Centre?
+    - Is the Health Centre open during breaks?
+    - health centre
+    - health services
+    - medical services
+    - health clinic
+    - healthcare
+    - medical care
+    - health center location
+    - health appointments
+    - medical assistance
+    - health support
+
+- intent: medical_insurance_inquiry
+  examples: |
+    - What medical insurance do students have?
+    - How much coverage does the student insurance provide?
+    - What's covered under student medical insurance?
+    - How do I use my student insurance?
+    - Are sports injuries covered by insurance?
+    - What's the insurance coverage amount?
+    - How do I claim medical insurance?
+    - What medical expenses are covered?
+    - Is dental care covered by student insurance?
+    - How do I get insurance reimbursement?
+    - medical insurance
+    - student insurance
+    - insurance coverage
+    - health insurance
+    - insurance benefits
+    - medical coverage
+    - insurance claims
+    - insurance reimbursement
+    - health benefits
+    - accident insurance
+
+- intent: mental_health_services_inquiry
+  examples: |
+    - What mental health services are available?
+    - Can I get counseling for stress?
+    - Are there therapy services on campus?
+    - How do I access mental health support?
+    - Is there psychological counseling available?
+    - Can I get help for anxiety or depression?
+    - What mental health resources exist?
+    - Are mental health services confidential?
+    - How do I book a counseling session?
+    - What support is available for emotional issues?
+    - mental health
+    - counseling services
+    - psychological support
+    - therapy services
+    - mental health support
+    - emotional support
+    - stress counseling
+    - anxiety help
+    - depression support
+    - mental wellness
+
+- intent: counseling_services_inquiry
+  examples: |
+    - What counseling services are available?
+    - Can I get academic counseling?
+    - Is personal counseling offered?
+    - How do I access counseling services?
+    - What types of counseling are provided?
+    - Are counseling sessions free?
+    - How do I schedule a counseling appointment?
+    - Is counseling confidential?
+    - Can I get career counseling?
+    - What support is available for personal issues?
+    - counseling services
+    - personal counseling
+    - academic counseling
+    - professional counseling
+    - counseling support
+    - counseling appointment
+    - counseling help
+    - guidance counseling
+    - psychological counseling
+    - student counseling
+
+- intent: career_services_inquiry
+  examples: |
+    - What career services are available?
+    - Can I get help with job searching?
+    - Are there career counseling services?
+    - How do I access career guidance?
+    - What career support is provided?
+    - Can I get help with my resume?
+    - Are there job fairs on campus?
+    - How do I find internship opportunities?
+    - What career development programs exist?
+    - Can I get interview preparation help?
+    - career services
+    - job search help
+    - career counseling
+    - career guidance
+    - resume help
+    - job placement
+    - career development
+    - internship opportunities
+    - job fairs
+    - career support
+
+- intent: international_students_inquiry
+  examples: |
+    - What services are available for international students?
+    - How do I get visa support?
+    - What orientation is provided for international students?
+    - Can I get help with immigration issues?
+    - What support is available for foreign students?
+    - How do I get cultural adjustment assistance?
+    - Are there international student programs?
+    - What immigration guidance is provided?
+    - Can I get help with visa renewal?
+    - What services does the International Office provide?
+    - international students
+    - visa support
+    - immigration help
+    - international office
+    - foreign students
+    - visa assistance
+    - immigration guidance
+    - international services
+    - cultural adjustment
+    - international support
+
+- intent: student_hostels_inquiry
+  examples: |
+    - Does USIU provide on-campus housing?
+    - What accommodation options are available?
+    - How do I apply for university housing?
+    - What are the hostel facilities like?
+    - How much does on-campus housing cost?
+    - What housing options exist for students?
+    - Can I get a single room in the hostel?
+    - What amenities are provided in hostels?
+    - How do I book accommodation?
+    - Are meals included in hostel fees?
+    - student hostels
+    - on-campus housing
+    - university accommodation
+    - student housing
+    - hostel facilities
+    - accommodation options
+    - housing application
+    - residential services
+    - student residence
+    - campus accommodation
+
+- intent: disability_services_inquiry
+  examples: |
+    - What services are available for students with disabilities?
+    - Can I get academic accommodations?
+    - What disability support is provided?
+    - How do I access disability services?
+    - Are there assistive technologies available?
+    - Can I get help with accessibility issues?
+    - What accommodations are available for exams?
+    - How do I register for disability services?
+    - What support is available for learning disabilities?
+    - Are campus facilities accessible?
+    - disability services
+    - academic accommodations
+    - accessibility services
+    - assistive technology
+    - disability support
+    - learning disabilities
+    - accessibility accommodations
+    - special needs
+    - disability office
+    - accessibility help
+
+- intent: financial_aid_inquiry
+  examples: |
+    - What financial aid is available?
+    - Can I get scholarships at USIU?
+    - Are there grants for students?
+    - How do I apply for financial assistance?
+    - What funding options exist?
+    - Can I get help paying for tuition?
+    - Are there bursaries available?
+    - How do I qualify for financial aid?
+    - What payment plans are offered?
+    - Can I get emergency financial assistance?
+    - financial aid
+    - scholarships
+    - grants
+    - bursaries
+    - financial assistance
+    - funding options
+    - tuition help
+    - payment plans
+    - financial support
+    - student aid
+
+- intent: work_study_inquiry
+  examples: |
+    - Are there work-study programs available?
+    - Can I work part-time on campus?
+    - What student employment opportunities exist?
+    - How do I apply for campus jobs?
+    - What work-study positions are available?
+    - Can I work while studying?
+    - Are there student assistant positions?
+    - How much can I earn through work-study?
+    - What are the requirements for student jobs?
+    - Can international students work on campus?
+    - work-study
+    - student employment
+    - campus jobs
+    - part-time work
+    - student assistant
+    - work opportunities
+    - student jobs
+    - campus employment
+    - work while studying
+    - student positions
+
+- intent: student_conduct_inquiry
+  examples: |
+    - What is the Student Code of Conduct?
+    - What behavior is expected of students?
+    - What are the disciplinary procedures?
+    - What happens if I violate university rules?
+    - What are my rights as a student?
+    - What responsibilities do students have?
+    - How are disciplinary cases handled?
+    - What can result in disciplinary action?
+    - What appeal processes are available?
+    - How do I report misconduct?
+    - student conduct
+    - code of conduct
+    - disciplinary procedures
+    - student behavior
+    - university rules
+    - student rights
+    - student responsibilities
+    - disciplinary action
+    - misconduct reporting
+    - behavioral expectations
+
+- intent: grievance_procedures_inquiry
+  examples: |
+    - How do I file a grievance?
+    - What are the grievance procedures?
+    - Who handles student complaints?
+    - How do I report problems with staff?
+    - What's the process for filing complaints?
+    - Can I appeal university decisions?
+    - Who do I contact about grievances?
+    - What support is available for grievances?
+    - How are complaints investigated?
+    - What are my options if I have a complaint?
+    - grievance procedures
+    - file grievance
+    - student complaints
+    - complaint process
+    - appeal procedures
+    - grievance handling
+    - complaint investigation
+    - student grievances
+    - complaint resolution
+    - grievance support
+
+- intent: emergency_procedures_inquiry
+  examples: |
+    - What should I do in an emergency?
+    - What are the emergency procedures on campus?
+    - How do I report an emergency?
+    - What emergency services are available?
+    - Who do I contact in case of emergency?
+    - What's the emergency contact number?
+    - Are there emergency protocols?
+    - How does the university handle emergencies?
+    - What safety procedures should I know?
+    - Where can I find emergency information?
+    - emergency procedures
+    - emergency protocols
+    - emergency services
+    - emergency contact
+    - safety procedures
+    - emergency response
+    - campus safety
+    - emergency information
+    - crisis management
+    - emergency help
+
+- intent: campus_security_inquiry
+  examples: |
+    - What security services are available on campus?
+    - How do I contact campus security?
+    - What are the security measures on campus?
+    - Can I get a security escort?
+    - What should I do if I feel unsafe?
+    - How do I report security incidents?
+    - What security support is available?
+    - Are there security patrols on campus?
+    - How do I report suspicious activity?
+    - What's the security contact number?
+    - campus security
+    - security services
+    - security escort
+    - security patrols
+    - security incidents
+    - campus safety
+    - security contact
+    - security support
+    - suspicious activity
+    - safety concerns
+
+- intent: parking_services_inquiry
+  examples: |
+    - Where can I park on campus?
+    - Do I need a parking permit?
+    - How do I get a parking sticker?
+    - What are the parking rules?
+    - Can I park overnight on campus?
+    - Where do I get parking authorization?
+    - What are the parking fees?
+    - Are there designated student parking areas?
+    - How do I register my vehicle?
+    - What happens if I park illegally?
+    - parking services
+    - parking permit
+    - parking sticker
+    - vehicle registration
+    - parking rules
+    - overnight parking
+    - parking fees
+    - student parking
+    - parking authorization
+    - parking violations
+
+- intent: dining_services_inquiry
+  examples: |
+    - What dining options are available on campus?
+    - Where can I eat on campus?
+    - What meal plans are offered?
+    - Are there different dining facilities?
+    - What food services are available?
+    - Can I use meal cards?
+    - What are the dining hours?
+    - Are there vegetarian options?
+    - What catering services exist?
+    - How do I pay for meals?
+    - dining services
+    - meal plans
+    - food services
+    - campus dining
+    - dining facilities
+    - meal cards
+    - catering services
+    - food options
+    - dining hours
+    - campus restaurants
+
+- intent: bookstore_services_inquiry
+  examples: |
+    - Where is the campus bookstore?
+    - What does the bookstore sell?
+    - Can I buy textbooks at the bookstore?
+    - What are the bookstore hours?
+    - Do you sell university merchandise?
+    - Can I order books online?
+    - What supplies are available at the bookstore?
+    - Do you buy back textbooks?
+    - Are there digital textbook options?
+    - What payment methods does the bookstore accept?
+    - campus bookstore
+    - textbooks
+    - university merchandise
+    - school supplies
+    - bookstore hours
+    - book orders
+    - textbook buyback
+    - digital books
+    - bookstore services
+    - academic materials
+
+- intent: alumni_relations_inquiry
+  examples: |
+    - What alumni services are available?
+    - How do I stay connected as an alumnus?
+    - Are there alumni events?
+    - What networking opportunities exist for alumni?
+    - How do I update my alumni information?
+    - What career support is available for alumni?
+    - Are there alumni benefits?
+    - How do I get involved in alumni activities?
+    - What alumni programs exist?
+    - How do I contact the alumni office?
+    - alumni relations
+    - alumni services
+    - alumni events
+    - alumni networking
+    - alumni benefits
+    - alumni programs
+    - alumni activities
+    - alumni office
+    - graduate services
+    - alumni support
+
+- intent: volunteer_opportunities_inquiry
+  examples: |
+    - What volunteer opportunities are available?
+    - Can I do community service through USIU?
+    - Are there volunteer programs?
+    - How do I get involved in community service?
+    - What social responsibility initiatives exist?
+    - Can I volunteer on campus?
+    - Are there outreach programs?
+    - How do I find volunteer work?
+    - What community programs does USIU support?
+    - Can I get credit for volunteer work?
+    - volunteer opportunities
+    - community service
+    - volunteer programs
+    - social responsibility
+    - outreach programs
+    - community involvement
+    - volunteer work
+    - civic engagement
+    - service learning
+    - community programs
+
+- intent: graduation_services_inquiry
+  examples: |
+    - What graduation services are available?
+    - How do I prepare for graduation?
+    - When is the graduation ceremony?
+    - How do I order graduation regalia?
+    - What are the graduation requirements?
+    - How do I apply for graduation?
+    - When do I receive my diploma?
+    - What graduation ceremonies are held?
+    - How many guests can I invite to graduation?
+    - What graduation support is available?
+    - graduation services
+    - graduation ceremony
+    - graduation regalia
+    - diploma
+    - commencement
+    - graduation requirements
+    - graduation application
+    - graduation preparation
+    - graduation support
+    - graduation events
+
+- intent: transcript_services_inquiry
+  examples: |
+    - How do I request official transcripts?
+    - What's the cost for transcripts?
+    - How long does transcript processing take?
+    - Can I get unofficial transcripts?
+    - How do I send transcripts to other institutions?
+    - What information is on transcripts?
+    - Can I get expedited transcript service?
+    - How do I order transcripts online?
+    - What's required for transcript requests?
+    - Can I get electronic transcripts?
+    - transcript services
+    - official transcripts
+    - unofficial transcripts
+    - transcript request
+    - transcript processing
+    - transcript cost
+    - electronic transcripts
+    - transcript delivery
+    - academic transcripts
+    - transcript orders
+
+- intent: verification_services_inquiry
+  examples: |
+    - How do I get enrollment verification?
+    - Can I get degree verification?
+    - What verification services are available?
+    - How do I verify my academic status?
+    - Can employers verify my enrollment?
+    - What's the process for verification requests?
+    - How long does verification take?
+    - What information is included in verifications?
+    - Can I get verification letters?
+    - How do third parties verify my records?
+    - verification services
+    - enrollment verification
+    - degree verification
+    - academic verification
+    - verification letters
+    - verification requests
+    - verification process
+    - student verification
+    - academic status
+    - verification documents
+
+- intent: orientation_services_inquiry
+  examples: |
+    - What orientation programs are available?
+    - Is orientation mandatory for new students?
+    - What happens during orientation?
+    - When is new student orientation?
+    - What orientation activities are planned?
+    - How long is the orientation program?
+    - What should I bring to orientation?
+    - Can parents attend orientation?
+    - What information is covered in orientation?
+    - How do I register for orientation?
+    - orientation services
+    - new student orientation
+    - orientation program
+    - orientation activities
+    - orientation registration
+    - student orientation
+    - orientation schedule
+    - orientation requirements
+    - welcome program
+    - freshman orientation
+
+- intent: academic_probation_inquiry
+  examples: |
+    - What is academic probation?
+    - How do I avoid academic probation?
+    - What happens if I'm on academic probation?
+    - What support is available for probation students?
+    - How do I get off academic probation?
+    - What are the requirements for good standing?
+    - Can I appeal academic probation?
+    - What resources help with academic improvement?
+    - How does probation affect my enrollment?
+    - What happens after multiple probations?
+    - academic probation
+    - academic warning
+    - good standing
+    - academic improvement
+    - probation support
+    - academic status
+    - probation requirements
+    - academic success
+    - probation appeal
+    - academic assistance
+
+- intent: academic_appeals_inquiry
+  examples: |
+    - How do I appeal an academic decision?
+    - What's the academic appeal process?
+    - Can I appeal my grades?
+    - How do I challenge academic dismissal?
+    - What grounds exist for academic appeals?
+    - Who reviews academic appeals?
+    - What documentation is needed for appeals?
+    - How long do appeals take?
+    - Can I get help with my appeal?
+    - What are my appeal rights?
+    - academic appeals
+    - appeal process
+    - grade appeals
+    - academic dismissal appeal
+    - appeal procedures
+    - appeal documentation
+    - appeal review
+    - academic decisions
+    - appeal rights
+    - appeal assistance
+
+- intent: student_records_inquiry
+  examples: |
+    - How do I access my student records?
+    - What information is in my student file?
+    - Can I update my student records?
+    - How do I correct errors in my records?
+    - What privacy rights do I have?
+    - Who can access my student records?
+    - How are student records maintained?
+    - Can I get copies of my records?
+    - What's the record retention policy?
+    - How do I authorize record releases?
+    - student records
+    - academic records
+    - student file
+    - record access
+    - record privacy
+    - record correction
+    - record release
+    - FERPA rights
+    - record maintenance
+    - student information
+
+- intent: technology_support_inquiry
+  examples: |
+    - What technology support is available?
+    - How do I get help with computer problems?
+    - What IT services are provided?
+    - Can I get help with software?
+    - How do I access technical support?
+    - What technology training is available?
+    - Can I get help with online learning?
+    - What computer resources are available?
+    - How do I report technology issues?
+    - What technology assistance exists?
+    - technology support
+    - IT services
+    - technical support
+    - computer help
+    - software assistance
+    - technology training
+    - IT help desk
+    - technical assistance
+    - computer support
+    - technology resources
+
+# Additional Student Life Intents
+- intent: student_sports_inquiry
+  examples: |
+    - What sports are available at USIU?
+    - Can I join sports teams?
+    - What athletic programs exist?
+    - Are there intramural sports?
+    - How do I try out for teams?
+    - What sports facilities are available?
+    - Can I use the gym?
+    - Are there fitness programs?
+    - What recreational sports exist?
+    - How do I get involved in athletics?
+    - student sports
+    - athletics
+    - sports teams
+    - intramural sports
+    - fitness programs
+    - sports facilities
+    - recreational sports
+    - gym access
+    - athletic programs
+    - sports tryouts
+
+- intent: recreation_activities_inquiry
+  examples: |
+    - What recreational activities are available?
+    - Are there fitness facilities?
+    - What outdoor activities exist?
+    - Can I access recreational programs?
+    - What wellness programs are offered?
+    - Are there adventure activities?
+    - What recreation services exist?
+    - Can I use recreational facilities?
+    - What fun activities are available?
+    - How do I participate in recreation?
+    - recreational activities
+    - fitness facilities
+    - wellness programs
+    - outdoor activities
+    - recreation programs
+    - recreational facilities
+    - adventure activities
+    - fun activities
+    - recreation services
+    - recreational opportunities
+
+- intent: campus_events_inquiry
+  examples: |
+    - What events happen on campus?
+    - Are there cultural festivals?
+    - What social activities exist?
+    - Can I attend campus events?
+    - What special events are planned?
+    - Are there seasonal celebrations?
+    - What entertainment is available?
+    - How do I find out about events?
+    - Can I organize campus events?
+    - What cultural activities exist?
+    - campus events
+    - cultural festivals
+    - social activities
+    - special events
+    - seasonal celebrations
+    - campus entertainment
+    - cultural activities
+    - event planning
+    - student events
+    - campus programming
+
+- intent: student_organizations_inquiry
+  examples: |
+    - What student organizations exist?
+    - Can I join professional societies?
+    - Are there cultural groups?
+    - What special interest groups exist?
+    - How do I find organizations?
+    - Can I start a new organization?
+    - What service organizations exist?
+    - Are there honor societies?
+    - What academic organizations exist?
+    - How do I get involved in organizations?
+    - student organizations
+    - professional societies
+    - cultural groups
+    - special interest groups
+    - service organizations
+    - honor societies
+    - academic organizations
+    - student groups
+    - campus organizations
+    - organization membership

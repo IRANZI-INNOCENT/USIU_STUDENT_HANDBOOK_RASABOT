@@ -1,0 +1,373 @@
+# version: "3.1"
+
+# rules:
+
+# # Basic conversation rules
+# - rule: Say goodbye anytime the user says goodbye
+#   steps:
+#   - intent: goodbye
+#   - action: utter_goodbye
+
+# - rule: Say 'I am a bot' anytime the user challenges
+#   steps:
+#   - intent: bot_challenge
+#   - action: utter_iamabot
+
+# # Academic Affairs Rules
+# - rule: Respond to course load inquiry
+#   steps:
+#   - intent: course_load_inquiry
+#   - action: utter_course_load
+
+# - rule: Respond to academic advising inquiry
+#   steps:
+#   - intent: academic_advising_inquiry
+#   - action: utter_academic_advising
+
+# - rule: Respond to attendance policy inquiry
+#   steps:
+#   - intent: attendance_policy_inquiry
+#   - action: utter_attendance_policy
+
+# - rule: Respond to GPA requirements inquiry
+#   steps:
+#   - intent: gpa_requirements_inquiry
+#   - action: utter_gpa_requirements
+
+# - rule: Respond to library hours inquiry
+#   steps:
+#   - intent: library_hours_inquiry
+#   - action: utter_library_hours
+
+# - rule: Respond to library borrowing inquiry
+#   steps:
+#   - intent: library_borrowing_inquiry
+#   - action: utter_library_borrowing
+
+# - rule: Respond to library fines inquiry
+#   steps:
+#   - intent: library_fines_inquiry
+#   - action: utter_library_fines
+
+# - rule: Respond to course registration inquiry
+#   steps:
+#   - intent: course_registration_inquiry
+#   - action: utter_course_registration
+
+# - rule: Respond to transfer credits inquiry
+#   steps:
+#   - intent: transfer_credits_inquiry
+#   - action: utter_transfer_credits
+
+# - rule: Respond to graduation requirements inquiry
+#   steps:
+#   - intent: graduation_requirements_inquiry
+#   - action: utter_graduation_requirements
+
+# - rule: Respond to independent study inquiry
+#   steps:
+#   - intent: independent_study_inquiry
+#   - action: utter_independent_study
+
+# - rule: Respond to library study spaces inquiry
+#   steps:
+#   - intent: library_study_spaces_inquiry
+#   - action: utter_library_study_spaces
+
+# - rule: Respond to library rules inquiry
+#   steps:
+#   - intent: library_rules_inquiry
+#   - action: utter_library_rules
+
+# - rule: Respond to library resources inquiry
+#   steps:
+#   - intent: library_resources_inquiry
+#   - action: utter_library_resources
+
+# - rule: Respond to library staff contact inquiry
+#   steps:
+#   - intent: library_staff_contact_inquiry
+#   - action: utter_library_staff_contact
+
+# - rule: Respond to academic calendar inquiry
+#   steps:
+#   - intent: academic_calendar_inquiry
+#   - action: utter_academic_calendar
+
+# - rule: Respond to student classification inquiry
+#   steps:
+#   - intent: student_classification_inquiry
+#   - action: utter_student_classification
+
+# - rule: Respond to academic support contact inquiry
+#   steps:
+#   - intent: academic_support_contact_inquiry
+#   - action: utter_academic_support_contact
+
+# - rule: Respond to course structure inquiry
+#   steps:
+#   - intent: course_structure_inquiry
+#   - action: utter_course_structure
+
+# - rule: Respond to student newspaper inquiry
+#   steps:
+#   - intent: student_newspaper_inquiry
+#   - action: utter_student_newspaper
+
+# # University Organization Rules
+# - rule: Respond to vice chancellor inquiry
+#   steps:
+#   - intent: vice_chancellor_inquiry
+#   - action: utter_vice_chancellor
+
+# - rule: Respond to payment methods inquiry
+#   steps:
+#   - intent: payment_methods_inquiry
+#   - action: utter_payment_methods
+
+# - rule: Respond to deferred payment inquiry
+#   steps:
+#   - intent: deferred_payment_inquiry
+#   - action: utter_deferred_payment
+
+# - rule: Respond to cafeteria hours inquiry
+#   steps:
+#   - intent: cafeteria_hours_inquiry
+#   - action: utter_cafeteria_hours
+
+# - rule: Respond to cafeteria rules inquiry
+#   steps:
+#   - intent: cafeteria_rules_inquiry
+#   - action: utter_cafeteria_rules
+
+# - rule: Respond to transport inquiry
+#   steps:
+#   - intent: transport_inquiry
+#   - action: utter_transport
+
+# - rule: Respond to fire safety inquiry
+#   steps:
+#   - intent: fire_safety_inquiry
+#   - action: utter_fire_safety
+
+# - rule: Respond to alumni services inquiry
+#   steps:
+#   - intent: alumni_services_inquiry
+#   - action: utter_alumni_services
+
+# - rule: Respond to HR services inquiry
+#   steps:
+#   - intent: hr_services_inquiry
+#   - action: utter_hr_services
+
+# - rule: Respond to ICT services inquiry
+#   steps:
+#   - intent: ict_services_inquiry
+#   - action: utter_ict_services
+
+# - rule: Respond to ICT regulations inquiry
+#   steps:
+#   - intent: ict_regulations_inquiry
+#   - action: utter_ict_regulations
+
+# - rule: Respond to contact request
+#   steps:
+#   - intent: contact_request
+#   - action: utter_contact_general
+
+# # Student Life Rules
+# - rule: Respond to general student life inquiry
+#   steps:
+#   - intent: understand_general_student_life
+#   - action: utter_student_life
+
+# - rule: Respond to clubs and societies inquiry
+#   steps:
+#   - intent: explore_clubs_and_societies
+#   - action: utter_clubs_societies
+
+# - rule: Respond to student leadership inquiry
+#   steps:
+#   - intent: learn_about_student_leadership
+#   - action: utter_student_leadership
+
+# - rule: Respond to spiritual life support inquiry
+#   steps:
+#   - intent: spiritual_life_support
+#   - action: utter_spiritual_support
+
+# - rule: Respond to student sports inquiry
+#   steps:
+#   - intent: student_sports_inquiry
+#   - action: utter_student_sports_inquiry
+
+# - rule: Respond to recreation activities inquiry
+#   steps:
+#   - intent: recreation_activities_inquiry
+#   - action: utter_recreation_activities
+
+# - rule: Respond to campus events inquiry
+#   steps:
+#   - intent: campus_events_inquiry
+#   - action: utter_campus_events
+
+# - rule: Respond to student organizations inquiry
+#   steps:
+#   - intent: student_organizations_inquiry
+#   - action: utter_student_organizations
+
+# # Student Services Rules
+# - rule: Respond to SAC inquiry
+#   steps:
+#   - intent: sac_inquiry
+#   - action: utter_sac
+
+# - rule: Respond to SAC representatives inquiry
+#   steps:
+#   - intent: sac_representatives_inquiry
+#   - action: utter_sac_representatives
+
+# - rule: Respond to student clubs organizations inquiry
+#   steps:
+#   - intent: student_clubs_organizations_inquiry
+#   - action: utter_student_clubs_organizations
+
+# - rule: Respond to registrar services inquiry
+#   steps:
+#   - intent: registrar_services_inquiry
+#   - action: utter_registrar_services_inquiry
+
+# - rule: Respond to health centre services inquiry
+#   steps:
+#   - intent: health_centre_services_inquiry
+#   - action: utter_health_centre_services
+
+# - rule: Respond to medical insurance inquiry
+#   steps:
+#   - intent: medical_insurance_inquiry
+#   - action: utter_medical_insurance
+
+# - rule: Respond to mental health services inquiry
+#   steps:
+#   - intent: mental_health_services_inquiry
+#   - action: utter_mental_health_services
+
+# - rule: Respond to counseling services inquiry
+#   steps:
+#   - intent: counseling_services_inquiry
+#   - action: utter_counseling_services_inquiry
+
+# - rule: Respond to career services inquiry
+#   steps:
+#   - intent: career_services_inquiry
+#   - action: utter_career_services
+
+# - rule: Respond to international students inquiry
+#   steps:
+#   - intent: international_students_inquiry
+#   - action: utter_international_students_inquiry
+
+# - rule: Respond to student hostels inquiry
+#   steps:
+#   - intent: student_hostels_inquiry
+#   - action: utter_student_hostels_inquiry
+
+# - rule: Respond to disability services inquiry
+#   steps:
+#   - intent: disability_services_inquiry
+#   - action: utter_disability_services
+
+# - rule: Respond to financial aid inquiry
+#   steps:
+#   - intent: financial_aid_inquiry
+#   - action: utter_financial_aid
+
+# - rule: Respond to work study inquiry
+#   steps:
+#   - intent: work_study_inquiry
+#   - action: utter_work_study
+
+# - rule: Respond to student conduct inquiry
+#   steps:
+#   - intent: student_conduct_inquiry
+#   - action: utter_student_conduct
+
+# - rule: Respond to grievance procedures inquiry
+#   steps:
+#   - intent: grievance_procedures_inquiry
+#   - action: utter_grievance_procedures
+
+# - rule: Respond to emergency procedures inquiry
+#   steps:
+#   - intent: emergency_procedures_inquiry
+#   - action: utter_emergency_procedures
+
+# - rule: Respond to campus security inquiry
+#   steps:
+#   - intent: campus_security_inquiry
+#   - action: utter_campus_security
+
+# - rule: Respond to parking services inquiry
+#   steps:
+#   - intent: parking_services_inquiry
+#   - action: utter_parking_services
+
+# - rule: Respond to dining services inquiry
+#   steps:
+#   - intent: dining_services_inquiry
+#   - action: utter_dining_services
+
+# - rule: Respond to bookstore services inquiry
+#   steps:
+#   - intent: bookstore_services_inquiry
+#   - action: utter_bookstore_services
+
+# - rule: Respond to alumni relations inquiry
+#   steps:
+#   - intent: alumni_relations_inquiry
+#   - action: utter_alumni_relations
+
+# - rule: Respond to volunteer opportunities inquiry
+#   steps:
+#   - intent: volunteer_opportunities_inquiry
+#   - action: utter_volunteer_opportunities
+
+# - rule: Respond to graduation services inquiry
+#   steps:
+#   - intent: graduation_services_inquiry
+#   - action: utter_graduation_services
+
+# - rule: Respond to transcript services inquiry
+#   steps:
+#   - intent: transcript_services_inquiry
+#   - action: utter_transcript_services
+
+# - rule: Respond to verification services inquiry
+#   steps:
+#   - intent: verification_services_inquiry
+#   - action: utter_verification_services
+
+# - rule: Respond to orientation services inquiry
+#   steps:
+#   - intent: orientation_services_inquiry
+#   - action: utter_orientation_services
+
+# - rule: Respond to academic probation inquiry
+#   steps:
+#   - intent: academic_probation_inquiry
+#   - action: utter_academic_probation
+
+# - rule: Respond to academic appeals inquiry
+#   steps:
+#   - intent: academic_appeals_inquiry
+#   - action: utter_academic_appeals
+
+# - rule: Respond to student records inquiry
+#   steps:
+#   - intent: student_records_inquiry
+#   - action: utter_student_records
+
+# - rule: Respond to technology suppohrt inquiry
+#   steps:
+#   - intent: technology_support_inquiry
+#   - action: utter_technology_support

@@ -1,0 +1,386 @@
+version: "3.1"
+
+intents:
+  # Basic conversation
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  
+  # Academic Affairs (From usiu_faqs_academic_affairs.md)
+  - course_load_inquiry
+  - academic_advising_inquiry
+  - attendance_policy_inquiry
+  - gpa_requirements_inquiry
+  - library_hours_inquiry
+  - library_borrowing_inquiry
+  - library_fines_inquiry
+  - course_registration_inquiry
+  - transfer_credits_inquiry
+  - graduation_requirements_inquiry
+  - independent_study_inquiry
+  - library_study_spaces_inquiry
+  - library_rules_inquiry
+  - library_resources_inquiry
+  - library_staff_contact_inquiry
+  - academic_calendar_inquiry
+  - student_classification_inquiry
+  - academic_support_contact_inquiry
+  - course_structure_inquiry
+  - student_newspaper_inquiry
+  
+  # University Organization (From usiu_faqs_university_organization.md)
+  - vice_chancellor_inquiry
+  - payment_methods_inquiry
+  - deferred_payment_inquiry
+  - cafeteria_hours_inquiry
+  - cafeteria_rules_inquiry
+  - transport_inquiry
+  - fire_safety_inquiry
+  - alumni_services_inquiry
+  - hr_services_inquiry
+  - ict_services_inquiry
+  - ict_regulations_inquiry
+  - contact_request
+  
+  # Student Life (From usiu_student_life_faq1.md)
+  - understand_general_student_life
+  - explore_clubs_and_societies
+  - learn_about_student_leadership
+  - spiritual_life_support
+  - student_sports_inquiry
+  - recreation_activities_inquiry
+  - campus_events_inquiry
+  - student_organizations_inquiry
+  
+  # Student Services (From usiu_student_services.md)
+  - sac_inquiry
+  - sac_representatives_inquiry
+  - student_clubs_organizations_inquiry
+  - registrar_services_inquiry
+  - health_centre_services_inquiry
+  - medical_insurance_inquiry
+  - mental_health_services_inquiry
+  - counseling_services_inquiry
+  - career_services_inquiry
+  - international_students_inquiry
+  - student_hostels_inquiry
+  - disability_services_inquiry
+  - financial_aid_inquiry
+  - work_study_inquiry
+  - student_conduct_inquiry
+  - grievance_procedures_inquiry
+  - emergency_procedures_inquiry
+  - campus_security_inquiry
+  - parking_services_inquiry
+  - dining_services_inquiry
+  - bookstore_services_inquiry
+  - alumni_relations_inquiry
+  - volunteer_opportunities_inquiry
+  - graduation_services_inquiry
+  - transcript_services_inquiry
+  - verification_services_inquiry
+  - orientation_services_inquiry
+  - academic_probation_inquiry
+  - academic_appeals_inquiry
+  - student_records_inquiry
+  - technology_support_inquiry
+
+entities:
+  - gpa_type
+  - student_type
+  - library_item
+  - course_units
+  - fee_amount
+  - contact_extension
+  - office_name
+  - service_type
+
+slots:
+  gpa_type:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: gpa_type
+  
+  student_type:
+    type: text
+    influence_conversation: false
+    mappings:
+    - type: from_entity
+      entity: student_type
+
+responses:
+  utter_greet:
+  - text: "Hello! I'm the USIU Student Handbook Bot. I can help you with information about academic affairs, university services, and student life. What would you like to know?"
+
+  utter_goodbye:
+  - text: "Goodbye! Feel free to ask me anytime about USIU services and policies."
+
+  utter_iamabot:
+  - text: "I am the USIU Student Handbook Bot, here to help you navigate university policies and services."
+
+  utter_happy:
+  - text: "Great! I'm glad I could help. Is there anything else you'd like to know about USIU?"
+
+  utter_cheer_up:
+  - text: "I'm here to help make your USIU experience better. What information can I provide for you?"
+
+  utter_did_that_help:
+  - text: "Did that help answer your question?"
+
+  utter_course_load:
+  - text: "Undergraduate students need minimum 9 units (full-time is 12 units/4 courses). Graduate students need minimum 6 units (full-time is 9 units)."
+
+  utter_academic_advising:
+  - text: "Academic Advisors (AAs) and Academic Program Administrators (APAs) provide comprehensive advising services including degree planning, course selection, and registration assistance. Contact ext. 336/185 (SHSS) or 504/171 (CBS)."
+
+  utter_attendance_policy:
+  - text: "Students who miss more than 5 classes in a 3-unit course will receive an 'F' grade. For illness-related absences, provide official medical verification with stamp, signature, and address."
+
+  utter_gpa_requirements:
+  - text: "Undergraduate students need minimum 2.0 GPA; graduate students need 3.0 GPA. Poor performance leads to Warning → Probation → Dismissal. Students can appeal dismissal within 10 working days."
+
+  utter_library_hours:
+  - text: "Semester hours: Mon-Fri 8:15 AM-9:00 PM, Saturday 9:00 AM-6:00 PM, Sunday 11:00 AM-5:00 PM. Vacation: Mon-Fri 8:15 AM-5:00 PM only."
+
+  utter_library_borrowing:
+  - text: "Students can borrow 10 books for 2 weeks. Faculty can borrow 15 books for 1 month. Reference materials, periodicals, and special collections cannot be borrowed."
+
+  utter_library_fines:
+  - text: "Regular books: Ksh 3.00/day when recalled. Short loan: Ksh 5.00/hour. Audiovisual: Ksh 50.00/day. Lost/damaged items cost double the replacement price."
+
+  utter_course_registration:
+  - text: "Academic Program Administrators handle registration, course changes, and flexible scheduling. Contact ext. 226 (HSS) or 418 (CBS) for assistance."
+
+  utter_transfer_credits:
+  - text: "Academic Advisors handle transfer credit approval. Contact your advisor (ext. 336/185 for SHSS or 504/171 for CBS) to submit transcripts and course descriptions for evaluation."
+
+  utter_graduation_requirements:
+  - text: "Students must formally apply for graduation by the deadline in the Academic Calendar. Commencement is held once yearly. Honors: Cum Laude (3.50-3.69), Magna Cum Laude (3.70-3.89), Summa Cum Laude (3.90-4.00)."
+
+  utter_independent_study:
+  - text: "Academic Advisors approve independent study proposals. Contact your advisor to discuss requirements, find a faculty supervisor, and submit your proposal."
+
+  utter_library_study_spaces:
+  - text: "The library has 1200 seats with study carrels on floors 1-2 for collaborative learning. Three first-floor carrels have audiovisual workstations with headphones. Seat booking is prohibited."
+
+  utter_library_rules:
+  - text: "Maintain silence, no food/drinks, no phones, no sleeping, no seat booking. Violations result in warnings, probation, or disciplinary action. Show materials to security when leaving."
+
+  utter_library_resources:
+  - text: "Resources include OPAC, EBSCO databases, American Studies Collection, Africana Collection, UN Collection, course texts, audiovisual materials, and inter-library loan services."
+
+  utter_library_staff_contact:
+  - text: "Contact asklibrarian@usiu.ac.ke or library@usiu.ac.ke, or call extensions 254, 294, 371, 364, 252, or 314. Visit the information desk for immediate assistance."
+
+  utter_academic_calendar:
+  - text: "Check the Academic Calendar in the USIU Catalogue for all important dates including registration, graduation application deadlines, semester dates, and examination periods."
+
+  utter_student_classification:
+  - text: "Freshmen: <29 units, Sophomores: 30-59 units, Juniors: 60-89 units, Seniors: 90+ units. Classification based on completed semester units of college credit."
+
+  utter_academic_support_contact:
+  - text: "DVCAA: ext. 406/407, Deans: ext. 433/434 (SHSS), 415/414 (CSB), APAs: ext. 226 (HSS), 418 (CBS), Advisors: ext. 336/185 (HSS), 504/171 (CBS)."
+
+  utter_course_structure:
+  - text: "A 3-unit course meets twice weekly for 2-hour sessions (6 hours total). Students should spend 2 hours studying outside class for every hour in class (12 hours study time per week)."
+
+  utter_student_newspaper:
+  - text: "The USIU Gazette is produced by journalism students, published once per semester. Located at Dr. Lillian K. Beam Bldg (ICT Centre), 1st Floor, Content Creation Room. Welcomes student articles, letters, and contributions."
+
+  utter_vice_chancellor:
+  - text: "The Vice Chancellor oversees USIU's operations and fosters global connections through student exchange programs. Contact the office at Ext. 403 or 224."
+
+  utter_payment_methods:
+  - text: "USIU accepts payments via checks, bank deposits (CBA, Co-operative Bank, Standard Chartered), wire transfers, M-PESA (business number 516900, account is student ID and name), Zap (nickname USIU, reference is student ID), and credit/debit cards. No cash payments except for amounts up to KES 1,000 for library fines."
+
+  utter_deferred_payment:
+  - text: "Deferred payment plans are available for Kenyan students (not first-time freshmen) and must be arranged within the first two weeks of the semester with the Credit Control Office in the Finance Department."
+
+  utter_cafeteria_hours:
+  - text: "On Sundays, the cafeteria serves breakfast (9:30 AM–2:00 PM), lunch (12:00 PM–2:00 PM), and dinner (6:30 PM–8:30 PM). Snacks are available from 2:00 PM–6:00 PM. Contact Ext. 302, 208, or 293."
+
+  utter_cafeteria_rules:
+  - text: "Outside food is not allowed in the cafeteria, and utensils cannot be removed. The cafeteria is self-service, and students must return dishes to carts. Using another student's ID to buy food is prohibited and may lead to severe disciplinary sanctions. Contact Ext. 302, 208, or 293."
+
+  utter_transport:
+  - text: "Student transport is a contracted service; book it through the Transport Office at Ext. 583, located opposite the cafeteria. Student vehicles require security stickers for parking. Overnight parking needs clearance from the Security Office (Ext. 583)."
+
+  utter_fire_safety:
+  - text: "Fire safety rules prohibit overloading electrical outlets, smoking on campus, and tampering with fire extinguishers, which is illegal under Kenyan law. In a fire, evacuate, alert an administration officer, and call the fire department. Contact security at Ext. 266 or 461 in emergencies."
+
+  utter_alumni_services:
+  - text: "Alumni pay KES 5,250 annually or KES 3,250 for three months for library access. Contact the Alumni Office at Ext. 585, 205, 265, or alumni@usiu.ac.ke."
+
+  utter_hr_services:
+  - text: "All registered students have accident insurance up to KES 200,000 for injuries during travel or sports events. Contact the Health Services Coordinator at Ext. 542, 229, or 230. Student grievances against staff are handled by the Human Resources Office (Ext. 408)."
+
+  utter_ict_services:
+  - text: "Access Blackboard via the CX system with your login credentials. Computer labs are located in the Lillian K. Beam Building. ICT services include CX for registration and grades, Blackboard for e-learning, Wi-Fi in designated areas, and printing/scanning. Contact helpdesk@usiu.ac.ke for support."
+
+  utter_ict_regulations:
+  - text: "ICT lab regulations prohibit playing games, pirating software, moving equipment, or using another's account. Students must show a valid ID with a sticker to enter labs. Contact helpdesk@usiu.ac.ke for issues."
+
+  utter_contact_general:
+  - text: "For specific contact information, please mention which department or service you need to reach. I can provide extensions for the cafeteria, ICT, security, finance, alumni office, and many other departments."
+
+  utter_student_life:
+  - text: "Student life is vibrant and includes participation in clubs, societies, leadership, recreation, and spiritual activities to support students' academic and personal growth."
+
+  utter_clubs_societies:
+  - text: "Yes, USIU offers a wide range of academic, recreational, cultural, and religious clubs and societies for students to join including AISEC, Research club, Dance club and much more. You can join during orientation or by contacting the Dean of Students."
+
+  utter_student_leadership:
+  - text: "Students can participate in the Student Affairs Council (SAC), lead clubs, or engage in peer mentorship and event organization. Student leaders are elected annually around July."
+
+  utter_spiritual_support:
+  - text: "Yes, the university offers chaplaincy services, interdenominational fellowship, and access to spiritual leaders for guidance and support."
+
+  utter_registrar_services:
+  - text: "The Registrar's Office handles address updates, transcript processing, graduation applications, grade reporting, ID processing, and more."
+
+  utter_id_card_policy:
+  - text: "The USIU ID card must be worn at all times on campus and is required for identification. It must be surrendered when leaving the university."
+
+  utter_id_card_replacement:
+  - text: "Report the incident to the police and obtain a police abstract. Replacement costs Ksh. 500 with an abstract or Ksh. 1500 otherwise."
+
+  utter_degree_replacement:
+  - text: "Submit an affidavit, the original certificate (if available), supporting documents, and a cover letter to the Registrar's Office."
+
+  utter_international_students:
+  - text: "The International Students Office provides orientation, handles specific concerns, and coordinates exchange/study abroad programs for international students."
+
+  utter_student_hostels:
+  - text: "Yes, USIU offers on-campus hostels with double occupancy rooms and shared social spaces for international and out-of-town students."
+
+  utter_student_sports:
+  - text: "USIU supports both competitive and participatory sports, including basketball, swimming, rugby, tennis, and athletics."
+
+  utter_counseling_services:
+  - text: "The Counseling Center offers personal, group, and career counseling, as well as life skills development and awareness programs."
+
+  utter_aids_control:
+  - text: "The ACU coordinates HIV/AIDS awareness, prevention, curriculum development, and outreach programs on and off campus."
+
+  utter_default:
+  - text: "I'm sorry, I didn't understand that. I can help you with information about USIU academic affairs, university services, student life, library services, payment methods, and much more. Could you please rephrase your question?"
+
+  utter_career_counseling:
+  - text: "USIU supports career placement through resume guidance, career fairs, job search training, recruitment drives, and links to potential employers."
+
+  # New Student Services Responses
+  utter_sac:
+  - text: "The Student Affairs Council (SAC) is the official student government of USIU-Africa. It consists of an Executive Committee, Senate, and subcommittees that represent student interests, clubs, and activities."
+
+  utter_sac_representatives:
+  - text: "SAC Welfare and Academic Representatives manage welfare services (e.g., transport, health) and support academic matters by liaising with faculties and organizing academic events."
+
+  utter_student_clubs_organizations:
+  - text: "Students can join existing clubs or start new ones with approval from the SAC and Clubs Coordinator. Guidelines are provided in the Club Handbook. Contact the SAC or Head of Student Activities."
+
+  utter_registrar_services_inquiry:
+  - text: "The Registrar's Office handles ID issuance, transcripts, verifications, contact updates, academic calendars, and clearance documents."
+
+  utter_health_centre_services:
+  - text: "The Health Centre provides outpatient care, counseling, minor procedures, and first aid. It is open 24/7 for resident students."
+
+  utter_medical_insurance:
+  - text: "All registered students have medical insurance coverage up to KES 200,000 for injuries during travel or sports events. Contact the Health Services Coordinator at Ext. 542, 229, or 230."
+
+  utter_mental_health_services:
+  - text: "USIU provides counseling services for academic, personal, and mental health support. Contact the Counseling Centre for confidential assistance and guidance."
+
+  utter_counseling_services_inquiry:
+  - text: "Professional counseling services are available for academic stress, personal issues, career guidance, and mental health support. All sessions are confidential."
+
+  utter_career_services:
+  - text: "Career Services provides job placement assistance, internship opportunities, resume writing workshops, career fairs, and employer connections."
+
+  utter_international_students_inquiry:
+  - text: "The International Students Office provides visa support, orientation programs, cultural adjustment assistance, and immigration guidance for international students."
+
+  utter_student_hostels_inquiry:
+  - text: "USIU provides on-campus housing with various accommodation options. Contact the Housing Office for availability, rates, and application procedures."
+
+  utter_disability_services:
+  - text: "USIU provides disability support services including academic accommodations, assistive technology, and accessibility services. Contact the Disability Services Office."
+
+  utter_financial_aid:
+  - text: "Financial aid options include scholarships, grants, work-study programs, and payment plans. Contact the Financial Aid Office for assistance and application procedures."
+
+  utter_work_study:
+  - text: "Work-study programs allow students to work part-time on campus while studying. Contact the Financial Aid Office for available positions and application requirements."
+
+  utter_student_conduct:
+  - text: "The Student Code of Conduct outlines expected behavior, disciplinary procedures, and student rights and responsibilities. Contact the Dean of Students for clarification."
+
+  utter_grievance_procedures:
+  - text: "Student grievances are handled through formal procedures outlined in the Student Handbook. Contact the Dean of Students or Human Resources Office for guidance."
+
+  utter_emergency_procedures:
+  - text: "In emergencies, contact campus security at Ext. 266 or 461, or call local emergency services. Emergency procedures are posted throughout campus."
+
+  utter_campus_security:
+  - text: "Campus security operates 24/7 providing safety escorts, emergency response, and incident reporting. Contact security at Ext. 266 or 461."
+
+  utter_parking_services:
+  - text: "Student vehicles require security stickers for parking. Overnight parking needs clearance from the Security Office. Contact Ext. 583 for parking permits."
+
+  utter_dining_services:
+  - text: "Campus dining includes the main cafeteria with breakfast, lunch, dinner, and snacks. Multiple payment options available. Contact Ext. 302, 208, or 293."
+
+  utter_bookstore_services:
+  - text: "The campus bookstore provides textbooks, supplies, and USIU merchandise. Contact the bookstore for hours, inventory, and special orders."
+
+  utter_alumni_relations:
+  - text: "Alumni Services maintains connections with graduates through events, networking opportunities, and career support. Contact alumni@usiu.ac.ke."
+
+  utter_volunteer_opportunities:
+  - text: "Students can participate in community service, volunteer programs, and social responsibility initiatives through various campus organizations."
+
+  utter_graduation_services:
+  - text: "Graduation Services handles commencement ceremonies, diploma distribution, and graduation requirements verification. Apply for graduation by the Academic Calendar deadline."
+
+  utter_transcript_services:
+  - text: "Official transcripts can be requested through the Registrar's Office. Processing takes 3-5 business days. Fees apply for expedited service."
+
+  utter_verification_services:
+  - text: "The Registrar's Office provides enrollment verification, degree verification, and academic status confirmations for employers and other institutions."
+
+  utter_orientation_services:
+  - text: "New student orientation includes academic planning, campus tours, policy briefings, and social activities. Attendance is mandatory for all new students."
+
+  utter_academic_probation:
+  - text: "Students with low GPA may be placed on academic probation. Support includes academic advising, study skills workshops, and progress monitoring."
+
+  utter_academic_appeals:
+  - text: "Students can appeal academic decisions including grades, dismissal, and probation through formal procedures. Contact the Academic Affairs Office for guidance."
+
+  utter_student_records:
+  - text: "Student records are maintained by the Registrar's Office with strict confidentiality. Students can access their records and request corrections as needed."
+
+  utter_technology_support:
+  - text: "Technology support includes computer lab access, software training, email support, and learning management system assistance. Contact helpdesk@usiu.ac.ke."
+
+  # Student Life Additional Responses
+  utter_student_sports_inquiry:
+  - text: "USIU offers various sports including basketball, football, volleyball, tennis, and athletics. Join teams through tryouts or recreational leagues."
+
+  utter_recreation_activities:
+  - text: "Recreation activities include fitness facilities, intramural sports, outdoor adventures, and wellness programs available to all students."
+
+  utter_campus_events:
+  - text: "Campus events include cultural festivals, academic conferences, guest lectures, social activities, and seasonal celebrations throughout the academic year."
+
+  utter_student_organizations:
+  - text: "Student organizations include academic clubs, cultural groups, professional societies, service organizations, and special interest groups."
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

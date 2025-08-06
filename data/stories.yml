@@ -1,0 +1,663 @@
+version: "3.1"
+
+stories:
+
+# Basic conversation flows
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: say goodbye
+  steps:
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: bot challenge
+  steps:
+  - intent: bot_challenge
+  - action: utter_iamabot
+
+# Academic Affairs Stories
+- story: course load information
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: course_load_inquiry
+  - action: utter_course_load
+
+- story: academic advising help
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: academic_advising_inquiry
+  - action: utter_academic_advising
+
+- story: attendance policy question
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: attendance_policy_inquiry
+  - action: utter_attendance_policy
+
+- story: gpa requirements question
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: gpa_requirements_inquiry
+  - action: utter_gpa_requirements
+
+- story: library hours question
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: library_hours_inquiry
+  - action: utter_library_hours
+
+- story: library borrowing question
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: library_borrowing_inquiry
+  - action: utter_library_borrowing
+
+- story: library fines question
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: library_fines_inquiry
+  - action: utter_library_fines
+
+- story: course registration help
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: course_registration_inquiry
+  - action: utter_course_registration
+
+- story: transfer credits question
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: transfer_credits_inquiry
+  - action: utter_transfer_credits
+
+- story: graduation requirements
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: graduation_requirements_inquiry
+  - action: utter_graduation_requirements
+
+- story: independent study inquiry
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: independent_study_inquiry
+  - action: utter_independent_study
+
+- story: library study spaces
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: library_study_spaces_inquiry
+  - action: utter_library_study_spaces
+
+- story: library rules
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: library_rules_inquiry
+  - action: utter_library_rules
+
+- story: library resources
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: library_resources_inquiry
+  - action: utter_library_resources
+
+- story: library staff contact
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: library_staff_contact_inquiry
+  - action: utter_library_staff_contact
+
+- story: academic calendar
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: academic_calendar_inquiry
+  - action: utter_academic_calendar
+
+- story: student classification
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: student_classification_inquiry
+  - action: utter_student_classification
+
+- story: academic support contact
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: academic_support_contact_inquiry
+  - action: utter_academic_support_contact
+
+- story: course structure
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: course_structure_inquiry
+  - action: utter_course_structure
+
+- story: student newspaper
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: student_newspaper_inquiry
+  - action: utter_student_newspaper
+
+# University Organization Stories
+- story: vice chancellor inquiry
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: vice_chancellor_inquiry
+  - action: utter_vice_chancellor
+
+- story: payment methods
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: payment_methods_inquiry
+  - action: utter_payment_methods
+
+- story: deferred payment
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: deferred_payment_inquiry
+  - action: utter_deferred_payment
+
+- story: cafeteria hours
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: cafeteria_hours_inquiry
+  - action: utter_cafeteria_hours
+
+- story: cafeteria rules
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: cafeteria_rules_inquiry
+  - action: utter_cafeteria_rules
+
+- story: transport services
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: transport_inquiry
+  - action: utter_transport
+
+- story: fire safety
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: fire_safety_inquiry
+  - action: utter_fire_safety
+
+- story: alumni services
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: alumni_services_inquiry
+  - action: utter_alumni_services
+
+- story: hr services
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: hr_services_inquiry
+  - action: utter_hr_services
+
+- story: ict services
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ict_services_inquiry
+  - action: utter_ict_services
+
+- story: ict regulations
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: ict_regulations_inquiry
+  - action: utter_ict_regulations
+
+- story: contact request
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: contact_request
+  - action: utter_contact_general
+
+# Student Life Stories
+- story: general student life
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: understand_general_student_life
+  - action: utter_student_life
+
+- story: clubs and societies
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: explore_clubs_and_societies
+  - action: utter_clubs_societies
+
+- story: student leadership
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: learn_about_student_leadership
+  - action: utter_student_leadership
+
+- story: spiritual support
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: spiritual_life_support
+  - action: utter_spiritual_support
+
+- story: student sports
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: student_sports_inquiry
+  - action: utter_student_sports_inquiry
+
+- story: recreation activities
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: recreation_activities_inquiry
+  - action: utter_recreation_activities
+
+- story: campus events
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: campus_events_inquiry
+  - action: utter_campus_events
+
+- story: student organizations
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: student_organizations_inquiry
+  - action: utter_student_organizations
+
+# Student Services Stories
+- story: sac information
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: sac_inquiry
+  - action: utter_sac
+
+- story: sac representatives
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: sac_representatives_inquiry
+  - action: utter_sac_representatives
+
+- story: student clubs organizations
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: student_clubs_organizations_inquiry
+  - action: utter_student_clubs_organizations
+
+- story: registrar services
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: registrar_services_inquiry
+  - action: utter_registrar_services_inquiry
+
+- story: health centre services
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: health_centre_services_inquiry
+  - action: utter_health_centre_services
+
+- story: medical insurance
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: medical_insurance_inquiry
+  - action: utter_medical_insurance
+
+- story: mental health services
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mental_health_services_inquiry
+  - action: utter_mental_health_services
+
+- story: counseling services
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: counseling_services_inquiry
+  - action: utter_counseling_services_inquiry
+
+- story: career services
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: career_services_inquiry
+  - action: utter_career_services
+
+- story: international students
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: international_students_inquiry
+  - action: utter_international_students_inquiry
+
+- story: student hostels
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: student_hostels_inquiry
+  - action: utter_student_hostels_inquiry
+
+- story: disability services
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: disability_services_inquiry
+  - action: utter_disability_services
+
+- story: financial aid
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: financial_aid_inquiry
+  - action: utter_financial_aid
+
+- story: work study
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: work_study_inquiry
+  - action: utter_work_study
+
+- story: student conduct
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: student_conduct_inquiry
+  - action: utter_student_conduct
+
+- story: grievance procedures
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: grievance_procedures_inquiry
+  - action: utter_grievance_procedures
+
+- story: emergency procedures
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: emergency_procedures_inquiry
+  - action: utter_emergency_procedures
+
+- story: campus security
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: campus_security_inquiry
+  - action: utter_campus_security
+
+- story: parking services
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: parking_services_inquiry
+  - action: utter_parking_services
+
+- story: dining services
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: dining_services_inquiry
+  - action: utter_dining_services
+
+- story: bookstore services
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: bookstore_services_inquiry
+  - action: utter_bookstore_services
+
+- story: alumni relations
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: alumni_relations_inquiry
+  - action: utter_alumni_relations
+
+- story: volunteer opportunities
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: volunteer_opportunities_inquiry
+  - action: utter_volunteer_opportunities
+
+- story: graduation services
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: graduation_services_inquiry
+  - action: utter_graduation_services
+
+- story: transcript services
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: transcript_services_inquiry
+  - action: utter_transcript_services
+
+- story: verification services
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: verification_services_inquiry
+  - action: utter_verification_services
+
+- story: orientation services
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: orientation_services_inquiry
+  - action: utter_orientation_services
+
+- story: academic probation
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: academic_probation_inquiry
+  - action: utter_academic_probation
+
+- story: academic appeals
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: academic_appeals_inquiry
+  - action: utter_academic_appeals
+
+- story: student records
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: student_records_inquiry
+  - action: utter_student_records
+
+- story: technology support
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: technology_support_inquiry
+  - action: utter_technology_support
+
+# Multi-turn conversations
+- story: multiple questions about academic affairs
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: course_load_inquiry
+  - action: utter_course_load
+  - intent: academic_advising_inquiry
+  - action: utter_academic_advising
+  - intent: library_hours_inquiry
+  - action: utter_library_hours
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: student services exploration
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: health_centre_services_inquiry
+  - action: utter_health_centre_services
+  - intent: counseling_services_inquiry
+  - action: utter_counseling_services_inquiry
+  - intent: career_services_inquiry
+  - action: utter_career_services
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: campus life exploration
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: understand_general_student_life
+  - action: utter_student_life
+  - intent: explore_clubs_and_societies
+  - action: utter_clubs_societies
+  - intent: student_sports_inquiry
+  - action: utter_student_sports_inquiry
+  - intent: goodbye
+  - action: utter_goodbye
+
+- story: payment and financial information
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: payment_methods_inquiry
+  - action: utter_payment_methods
+  - intent: deferred_payment_inquiry
+  - action: utter_deferred_payment
+  - intent: financial_aid_inquiry
+  - action: utter_financial_aid
+  - intent: goodbye
+  - action: utter_goodbye
+
+# Direct questions without greeting
+- story: direct course load question
+  steps:
+  - intent: course_load_inquiry
+  - action: utter_course_load
+
+- story: direct library hours question
+  steps:
+  - intent: library_hours_inquiry
+  - action: utter_library_hours
+
+- story: direct payment methods question
+  steps:
+  - intent: payment_methods_inquiry
+  - action: utter_payment_methods
+
+- story: direct student life question
+  steps:
+  - intent: understand_general_student_life
+  - action: utter_student_life
+
+- story: direct ict services question
+  steps:
+  - intent: ict_services_inquiry
+  - action: utter_ict_services
+
+- story: direct health services question
+  steps:
+  - intent: health_centre_services_inquiry
+  - action: utter_health_centre_services
+
+# Feedback and satisfaction
+- story: helpful response
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: course_load_inquiry
+  - action: utter_course_load
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: not helpful response
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: course_load_inquiry
+  - action: utter_course_load
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_cheer_up
+
+# Error handling and fallback
+- story: unknown intent handling
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: bot_challenge
+  - action: utter_iamabot

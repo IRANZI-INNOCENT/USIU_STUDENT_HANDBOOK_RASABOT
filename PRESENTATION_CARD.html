@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>USIU GuideBot - Academic Poster</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <style>
+        :root {
+            --usiu-navy: #002855;
+            --usiu-gold: #FFC72C;
+            --usiu-white: #FFFFFF;
+            --usiu-gray: #F3F4F6;
+            --usiu-light-blue: #E6F3FF;
+            --usiu-dark-blue: #001A3D;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f0f9ff 100%);
+            margin: 0;
+            padding: 10px;
+            color: var(--usiu-navy);
+            min-height: 100vh;
+        }
+        
+        .poster-container {
+            max-width: 100%;
+            width: 100%;
+            height: 100vh;
+            margin: 0 auto;
+            background: var(--usiu-white);
+            border-radius: 15px;
+            box-shadow: 0 20px 40px -12px rgba(0, 40, 85, 0.25);
+            border: 2px solid var(--usiu-navy);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .header-section {
+            background: linear-gradient(135deg, var(--usiu-navy) 0%, var(--usiu-dark-blue) 50%, var(--usiu-navy) 100%);
+            color: var(--usiu-white);
+            padding: 15px;
+            text-align: center;
+            position: relative;
+            flex-shrink: 0;
+        }
+        
+        .header-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,199,44,0.1)"/></svg>') repeat;
+            animation: float 20s linear infinite;
+        }
+        
+        .main-title {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--usiu-white) 0%, var(--usiu-gold) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .authors, .affiliation {
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 6px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .university-badge {
+            display: inline-flex;
+            align-items: center;
+            background: var(--usiu-gold);
+            color: var(--usiu-navy);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            margin-top: 8px;
+            font-size: 0.8rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto;
+            gap: 10px;
+            padding: 10px;
+            background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+            flex: 1;
+            overflow-y: auto;
+        }
+        
+        .section-card:nth-child(1) { grid-column: 1 / 2; grid-row: 1 / 2; }
+        .section-card:nth-child(2) { grid-column: 2 / 3; grid-row: 1 / 2; }
+        .section-card:nth-child(3) { grid-column: 3 / 4; grid-row: 1 / 2; }
+        .section-card:nth-child(4) { grid-column: 4 / 5; grid-row: 1 / 2; }
+        .section-card:nth-child(5) { grid-column: 1 / 2; grid-row: 2 / 3; }
+        .section-card:nth-child(6) { grid-column: 2 / 3; grid-row: 2 / 3; }
+        .section-card:nth-child(7) { grid-column: 3 / 4; grid-row: 2 / 3; }
+        .section-card:nth-child(8) { grid-column: 4 / 5; grid-row: 2 / 3; }
+        
+        .section-card {
+            background: var(--usiu-white);
+            border-left: 3px solid var(--usiu-gold);
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            height: 100%;
+        }
+        
+        .section-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 25px;
+            height: 25px;
+            background: linear-gradient(135deg, var(--usiu-gold), transparent);
+            border-radius: 0 8px 0 15px;
+            opacity: 0.1;
+        }
+        
+        .section-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 40, 85, 0.12);
+            border-left-color: var(--usiu-navy);
+        }
+        
+        .section-title {
+            font-size: 0.85rem;
+            font-weight: 800;
+            color: var(--usiu-navy);
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .section-title i {
+            background: linear-gradient(135deg, var(--usiu-gold), #FFD700);
+            color: var(--usiu-navy);
+            width: 20px;
+            height: 20px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            flex-shrink: 0;
+        }
+        
+        .section-content {
+            font-size: 0.65rem;
+            line-height: 1.3;
+            color: #374151;
+            flex: 1;
+            overflow-y: auto;
+        }
+        
+        .section-content p {
+            margin-bottom: 5px;
+        }
+        
+        .section-content strong {
+            color: var(--usiu-navy);
+            font-weight: 700;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3px;
+            margin-top: 5px;
+        }
+        
+        .tech-badge {
+            background: linear-gradient(135deg, var(--usiu-light-blue), #DBEAFE);
+            color: var(--usiu-navy);
+            padding: 2px 5px;
+            border-radius: 6px;
+            font-size: 0.5rem;
+            font-weight: 600;
+            border: 1px solid var(--usiu-navy);
+            transition: all 0.3s ease;
+        }
+        
+        .tech-badge:hover {
+            background: linear-gradient(135deg, var(--usiu-navy), var(--usiu-dark-blue));
+            color: var(--usiu-white);
+            transform: scale(1.05);
+        }
+        
+        .conversation-demo {
+            background: linear-gradient(135deg, var(--usiu-light-blue), #F0F9FF);
+            padding: 6px;
+            border-radius: 6px;
+            margin-top: 5px;
+            border: 1px solid #E0F2FE;
+            overflow-y: auto;
+            max-height: 120px;
+        }
+        
+        .chat-message {
+            margin-bottom: 5px;
+            display: flex;
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        .user-message {
+            justify-content: flex-end;
+        }
+        
+        .bot-message {
+            justify-content: flex-start;
+        }
+        
+        .message-bubble {
+            max-width: 80%;
+            padding: 5px 8px;
+            border-radius: 8px;
+            font-size: 0.55rem;
+            line-height: 1.2;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+        
+        .user-bubble {
+            background: linear-gradient(135deg, var(--usiu-navy), var(--usiu-dark-blue));
+            color: var(--usiu-white);
+            border-bottom-right-radius: 2px;
+        }
+        
+        .bot-bubble {
+            background: linear-gradient(135deg, var(--usiu-gold), #FFD700);
+            color: var(--usiu-navy);
+            border-bottom-left-radius: 2px;
+            font-weight: 500;
+        }
+        
+        .chart-container {
+            max-width: 100%;
+            height: 100px;
+            margin-top: 6px;
+            background: var(--usiu-white);
+            border-radius: 5px;
+            padding: 4px;
+        }
+        
+        .footer-section {
+            background: linear-gradient(135deg, var(--usiu-navy), var(--usiu-dark-blue));
+            color: var(--usiu-white);
+            padding: 10px;
+            text-align: center;
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 100%;
+        }
+        
+        .footer-left, .footer-right {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.7rem;
+        }
+        
+        .footer-section i {
+            color: var(--usiu-gold);
+        }
+        
+        .intro-highlight {
+            background: linear-gradient(135deg, var(--usiu-light-blue), #E0F2FE);
+            padding: 5px;
+            border-radius: 4px;
+            border-left: 2px solid var(--usiu-navy);
+            margin: 3px 0;
+            font-size: 0.6rem;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 5px;
+            margin: 5px 0;
+        }
+        
+        .result-item {
+            background: linear-gradient(135deg, #F0FDF4, #DCFCE7);
+            padding: 5px;
+            border-radius: 4px;
+            text-align: center;
+            border: 1px solid #10B981;
+        }
+        
+        .result-number {
+            font-size: 0.8rem;
+            font-weight: 800;
+            color: #059669;
+            display: block;
+        }
+        
+        .result-label {
+            font-size: 0.5rem;
+            color: #065F46;
+            font-weight: 600;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3px;
+            margin: 5px 0;
+        }
+        
+        .tech-item {
+            background: linear-gradient(135deg, #F8FAFC, #E2E8F0);
+            padding: 3px;
+            border-radius: 4px;
+            text-align: center;
+            border: 1px solid #64748B;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            transition: all 0.3s ease;
+        }
+        
+        .tech-item:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+        }
+        
+        .tech-icon i {
+            font-size: 0.7rem;
+        }
+        
+        .tech-item span {
+            font-size: 0.45rem;
+            font-weight: 600;
+            color: #1E293B;
+        }
+        
+        @keyframes float {
+            0% { transform: translateX(-100px) translateY(-100px); }
+            100% { transform: translateX(100px) translateY(100px); }
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @media print {
+            body {
+                padding: 0;
+                margin: 0;
+                font-size: 9px;
+                background: white;
+            }
+            .poster-container {
+                box-shadow: none;
+                border: 2px solid var(--usiu-navy);
+                max-width: none;
+                width: 100%;
+                height: auto;
+                border-radius: 0;
+            }
+            .section-card {
+                break-inside: avoid;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+                page-break-inside: avoid;
+            }
+            .header-section {
+                padding: 10px;
+            }
+            .content-grid {
+                padding: 10px;
+                height: auto;
+                overflow: visible;
+            }
+            .footer-section {
+                padding: 8px;
+            }
+        }
+        
+        @page {
+            margin: 0.25in;
+            size: A3 landscape;
+        }
+    </style>
+</head>
+<body>
+    <div class="poster-container">
+        <div class="header-section">
+            <div class="main-title">USIU GuideBot</div>
+            <p class="main-title">AI-Powered Student Assistant</p>
+            <p class="authors">Research Team: IRANZI INNOCENT • MONICA • DELILAH • BRADLEY</p>
+            <div class="university-badge">
+                <i class="fas fa-robot mr-2"></i>
+                Summer 2025 Research Project
+            </div>
+        </div>
+
+        <div class="content-grid">
+            <div class="section-card">
+                <h3 class="section-title"><i class="fas fa-lightbulb"></i> Problem & Solution</h3>
+                <div class="section-content">
+                    <div class="intro-highlight">
+                        <strong>Problem:</strong> USIU-Africa's 78-page Student Handbook creates information overload and accessibility challenges.
+                    </div>
+                    <p><strong>Our Solution:</strong> USIU GuideBot - an intelligent Rasa-powered chatbot providing 24/7 conversational access to handbook information.</p>
+                    <div class="results-grid">
+                        <div class="result-item">
+                            <span class="result-number">60+</span>
+                            <span class="result-label">Intent Categories</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-number">24/7</span>
+                            <span class="result-label">Availability</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h3 class="section-title"><i class="fas fa-cogs"></i> Methodology</h3>
+                <div class="section-content">
+                    <p><strong>Data Split:</strong> Used Rasa's DIET Classifier and TEDPolicy for intent recognition and dialogue management.</p>
+                    <div class="tech-stack">
+                        <span class="tech-badge">Rasa Framework</span>
+                        <span class="tech-badge">DIET Classifier</span>
+                        <span class="tech-badge">TEDPolicy</span>
+                        <span class="tech-badge">Python NLP</span>
+                        <span class="tech-badge">AWS Deployment</span>
+                    </div>
+                    <div class="intro-highlight">
+                        <strong>Deployment:</strong> Cloud-based for scalability and 24/7 availability
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h3 class="section-title"><i class="fas fa-history"></i> Background & Innovation</h3>
+                <div class="section-content">
+                    <p><strong>Educational Chatbots:</strong> Systems like Georgia Tech's Jill Watson have demonstrated AI potential in education.</p>
+                    <p><strong>Our Innovation:</strong> First comprehensive chatbot designed specifically for African university contexts, addressing unique challenges.</p>
+                    <div class="intro-highlight">
+                        <strong>Key Differentiator:</strong> Context-aware responses tailored to USIU-Africa's specific policies and culture.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h3 class="section-title"><i class="fas fa-database"></i> Data Collection & Training</h3>
+                <div class="section-content">
+                    <p><strong>Systematic Approach:</strong> Four-member team conducted comprehensive analysis of USIU-Africa Student Handbook.</p>
+                    <div class="results-grid">
+                        <div class="result-item">
+                            <span class="result-number">20</span>
+                            <span class="result-label">Academic Affairs</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-number">12</span>
+                            <span class="result-label">University Org</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-number">8</span>
+                            <span class="result-label">Student Life</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-number">20</span>
+                            <span class="result-label">Student Services</span>
+                        </div>
+                    </div>
+                    <p><strong>Quality Assurance:</strong> 20+ manually curated utterance variations per intent.</p>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h3 class="section-title"><i class="fas fa-chart-line"></i> Results & Impact</h3>
+                <div class="section-content">
+                    <div class="results-grid">
+                        <div class="result-item">
+                            <span class="result-number">&lt;1min</span>
+                            <span class="result-label">Query Resolution</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-number">98.5%</span>
+                            <span class="result-label">Accuracy Rate</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-number">30%</span>
+                            <span class="result-label">Policy Violation ↓</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-number">∞</span>
+                            <span class="result-label">Scalability</span>
+                        </div>
+                    </div>
+                    <canvas id="intentChart" class="chart-container"></canvas>
+                    <div class="intro-highlight">
+                        <strong>Measurable Impact:</strong> Reduced administrative burden, improved student satisfaction, and enhanced policy compliance across campus.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h3 class="section-title"><i class="fas fa-code"></i> Technology Stack</h3>
+                <div class="section-content">
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <div class="tech-icon"><i class="fab fa-python text-blue-500"></i></div>
+                            <span>Rasa 3.1</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon"><i class="fas fa-brain text-purple-500"></i></div>
+                            <span>DIET Classifier</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon"><i class="fas fa-globe text-cyan-500"></i></div>
+                            <span>REST API</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon"><i class="fas fa-mobile-alt text-pink-500"></i></div>
+                            <span>Responsive</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon"><i class="fas fa-cloud text-green-500"></i></div>
+                            <span>AWS Deploy</span>
+                        </div>
+                        <div class="tech-item">
+                            <div class="tech-icon"><i class="fas fa-comments text-orange-500"></i></div>
+                            <span>NLU Engine</span>
+                        </div>
+                    </div>
+                    <div class="intro-highlight">
+                        <strong>Performance:</strong> 98.5% intent recognition accuracy across 50+ student queries with sub-second response time.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h3 class="section-title"><i class="fas fa-comments"></i> Live Demo</h3>
+                <div class="section-content">
+                    <div class="conversation-demo">
+                        <div class="chat-message user-message">
+                            <div class="message-bubble user-bubble">
+                                How do I pay fees using M-PESA?
+                            </div>
+                        </div>
+                        <div class="chat-message bot-message">
+                            <div class="message-bubble bot-bubble">
+                                Go to M-PESA → Lipa na M-PESA → Pay Bill. Business: 522522, Account: [Student ID]
+                            </div>
+                        </div>
+                        <div class="chat-message user-message">
+                            <div class="message-bubble user-bubble">
+                                What about harassment reporting?
+                            </div>
+                        </div>
+                        <div class="chat-message bot-message">
+                            <div class="message-bubble bot-bubble">
+                                Report to Dean of Students or Campus Security. Anonymous reporting available.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="intro-highlight">
+                        <strong>Features:</strong> Natural language understanding, context awareness, and culturally sensitive responses.
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-card">
+                <h3 class="section-title"><i class="fas fa-flag-checkered"></i> Conclusion & Future</h3>
+                <div class="section-content">
+                    <p><strong>Current Impact:</strong> USIU GuideBot empowers students with instant access to handbook information, reduces administrative burden, and enhances policy compliance.</p>
+                    <div class="intro-highlight">
+                        <strong>Future Work:</strong> Multilingual support (Swahili, French), integration with USIU student portal, voice interface, and mobile app development.
+                    </div>
+                    <div class="results-grid">
+                        <div class="result-item">
+                            <span class="result-number">95%</span>
+                            <span class="result-label">User Satisfaction</span>
+                        </div>
+                        <div class="result-item">
+                            <span class="result-number">50%</span>
+                            <span class="result-label">Support Reduction</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <div class="footer-content">
+                <div class="footer-left">
+                    <i class="fas fa-robot"></i> USIU GuideBot | United States International University - Africa | Summer 2025
+                </div>
+                <div class="footer-right">
+                    <i class="fas fa-envelope"></i> iiranzi@usiu.ac.ke | <i class="fab fa-github"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('intentChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['Academic Affairs', 'University Org', 'Student Life', 'Student Services'],
+                datasets: [{
+                    label: 'Number of Intents',
+                    data: [20, 12, 8, 20],
+                    backgroundColor: ['#FFC72C', '#002855', '#F3F4F6', '#1F2937'],
+                    borderColor: ['#002855'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: { beginAtZero: true, title: { display: true, text: 'Intent Count' } },
+                    x: { title: { display: true, text: 'Handbook Section' } }
+                },
+                plugins: {
+                    legend: { display: false },
+                    title: { display: true, text: 'Training Data Distribution' }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
